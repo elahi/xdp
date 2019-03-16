@@ -1,0 +1,23 @@
+---
+title: "Course materials"
+output: 
+  html_document: 
+    theme: cosmo
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Before Class 
+
+### `R` and `RStudio`
+
+Before the first class please read through the [computer setup instructions](https://elahi.github.io/00-setup-R.html) that walk you through how to set up your computer to run R and Rstudio. Even if you have these programs already installed, make sure to check that you are running the latest versions of R and RStudio (which the instructions will tell you how to do). 
+
+If you are unfamiliar with R and RStudio:  
+[Intro to R & RStudio](https://elahi.github.io/01-A-R-intro.html)   
+[Intro to R markdown](https://elahi.github.io/01-B-Rmarkdown-intro.html)
+
+
+## Week 1

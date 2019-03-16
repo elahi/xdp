@@ -1,0 +1,14 @@
+name: Experimental design and probability
+
+output_dir: "."
+
+output: 
+  html_document: 
+    includes:
+       in_header: ga_script.html
+
+navbar:
+  title: "BIOHOPK-174H"
+  left:
+    - text: "Materials"
+      href: materials.html

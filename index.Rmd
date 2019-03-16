@@ -1,0 +1,153 @@
+---
+title: "Experimental design and probability"
+author: "Spring 2019"
+subtitle: Stanford University, Hopkins Marine Station
+output:
+  html_document:
+    theme: cosmo
+    toc: yes
+    toc_depth: 3
+    toc_float: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Syllabus
+
+**Course description**  
+Variability is an integral part of biology. Introduction to probability and its use in designing experiments to address biological problems. Focus is on experimental design and the use of linear models in testing hypotheses (e.g., analysis of variance, regression). Students will use R to explore and analyze locally relevant biological datasets. No programming or statistical background is assumed. Prerequisite: consent of instructor.
+
+We will meet for 1.5 hours, twice a week. Classroom activities will be a mix of lecture, discussion, and collaborative problem solving. **Please bring your laptop to all classroom sessions.** Prior to class, students will complete a quiz which will be based on an assigned reading or video. All participants in the course will abide by the Code of Conduct, described below. 
+
+**Instructor**  
+Robin Elahi  
+  - Office: Boatworks dive locker    
+  - Office hours: By appointment via email  
+
+**Teaching assistant**  
+Nicole Moyen   
+  - Office: Fisher    
+  - Office hours:  
+
+**E-communication**  
+You can email us at:  
+elahi at stanford  
+nmoyen at stanford  
+Please use your Stanford email for all correspondence. 
+
+**Course website:**  
+[https://elahi.github.io/xdp/](https://elahi.github.io/xdp/)  
+This course website runs from a repository on GitHub. You can view this repository here:  
+[https://github.com/elahi/xdp](https://github.com/elahi/xdp)  
+Throughout the quarter, I will update the repository and website to reflect our progress. Please keep checking back to stay up to date. 
+
+**Times and Rooms:**  
+2:30-4pm; Mondays & Wednesdays; Agassiz 11
+
+**Textbook**
+
+## Schedule
+
+| Week | Topics                                               |
+|------|------------------------------------------------------|
+| 1    | Introduction; sampling; descriptive statistics       |
+| 2    | Probability; probability distributions | 
+| 3    | Confidence intervals; hypothesis testing             |
+| 4    | Experimental design      |
+| 5    | Analysis of variance       |
+| 6    | Regression       |
+| 7    | General linear models      |
+| 8    | Combining categorical and continuous predictors       |
+| 9    | Interactions between predictors     |
+| 10   | Blocked designs      |
+
+## Learning objectives
+
+Students will:
+
+  1. learn the basics of historical ecology with a focus on marine systems
+  2. learn about the ecology of rocky intertidal shores through lecture and field activities
+  3. practice the process and skills of research science ('scientific method')
+    - search for, review, and synthesize primary literature and unpublished student reports
+    - develop a research question and generate testable hypotheses
+    - gather empirical field data to test hypotheses
+    - analyze and interpret data using the R programming language
+    - form conclusions based on rigorous scientific evidence
+    - communicate results via oral and written formats
+    - learn best practices for data archival and reproducibility
+  4. participate in peer review
+  5. explore science career possibilities and training pathways
+
+## Evaluation and grading
+
+Here is a breakdown of graded tasks:
+
+  - Quizzes (30%)
+  - Exams (40%)
+  - Final presentation (20%)
+  - Attendance & participation (10%)
+
+## Notes
+
+Instructor may change the activities schedule or meeting location. You will be notified of any changes.
+
+Use of your personal computer for in-class exercises, such as data analysis and literature searches, is highly recommended. Please let your instructor/TA know if you do not have a computer so we may make classroom arrangements.
+
+**Plagiarism, Dishonesty, and Academic Misconduct**
+
+It is expected that Stanford’s Honor Code will be followed in all matters relating to this course. You are encouraged to meet and exchange ideas with your classmates while studying and working on homework assignments, but you are individually responsible for your own work and for understanding the material. You are not permitted to copy or otherwise reference another student’s homework or computer code. If you have any questions regarding this policy, feel free to contact Dr. Robin Elahi. 
+
+At the University level, passing anyone else's scholarly work, which can include: written material, exam answers, graphics or other images, and even ideas as your own, without proper attribution, is considered academic misconduct. 
+
+Plagiarism, cheating, and other misconduct, including bullying, discrimination, and harassment, are serious violations of the University's *Fundamental Standard* and *Honor Code*:
+
+<https://communitystandards.stanford.edu/policies-and-guidance>  
+
+**Students with Documented Disabilities**  
+
+Students who may need an academic accommodation based on the impact of a disability must initiate the request with the Office of Accessible Education (OAE).  Professional staff will evaluate the request with required documentation, recommend reasonable accommodations, and prepare an Accommodation Letter for faculty dated in the current quarter in which the request is being made. Students should contact the OAE as soon as possible since timely notice is needed to coordinate accommodations.  The OAE is located at 563 Salvatierra Walk (phone: 723-1066, URL: http://studentaffairs.stanford.edu/oae).
+
+
+**Affordability of Course Materials**  
+
+Stanford University and its instructors are committed to ensuring that all courses are financially accessible to all students. If you are an undergraduate who needs assistance with the cost of course textbooks, supplies, materials and/or fees, you are welcome to approach me directly. If would prefer not to approach me directly, please note that you can ask the Diversity & First-Gen Office for assistance by completing their questionnaire on course textbooks & supplies: http://tinyurl.com/jpqbarn or by contacting Joseph Brown, the Associate Director of the Diversity and First-Gen Office (jlbrown@stanford.edu; Old Union Room 207). Dr. Brown is available to connect you with resources and support while ensuring your privacy.
+
+
+**Roles and Responsibilities**  
+
+*Student*: inform the instructor no later than the first week of the quarter of any accommodation(s) you will or may potentially require.  
+*Instructors*: maintain strict confidentiality of any student’s disability and accommodations; help all students meet the learning objectives of this course.
+
+
+## Before Class 
+
+### `R` and `RStudio`
+
+Before the first class please read through the [computer setup instructions](https://elahi.github.io/00-setup-R.html) that walk you through how to set up your computer to run R and Rstudio. Even if you have these programs already installed, make sure to check that you are running the latest versions of R and RStudio (which the instructions will tell you how to do). 
+
+If you are unfamiliar with R and RStudio:  
+[Intro to R & RStudio](https://elahi.github.io/01-A-R-intro.html)   
+[Intro to R markdown](https://elahi.github.io/01-B-Rmarkdown-intro.html)
+
+## Code of conduct ##  
+
+I will maintain a respectful environment where everyone can engage in an open discussion and bring their strengths and weaknesses to the table without apprehension. Any behavior that detracts from these goals will not be tolerated. 
+
+Expected behavior includes (but is not limited to):
+
+  - Treating all participants with respect and consideration.
+  - Communicating openly with respect for others, critiquing ideas rather than individuals.
+  - Avoiding personal attacks directed toward others.
+  
+Unacceptable behavior includes (but is not limited to):
+
+  - Behavior that implies or indicates that someone does not belong in the class based on any personal characteristic or identity.
+  - Any unwanted attention, sexual advances, and comments about appearance.
+  - Verbal harassment, including comments, epithets, slurs, threats, and negative stereotyping that are offensive, hostile, disrespectful, or unwelcome.
+  - Non-verbal harassment, including actions or distribution, display, or discussion of any written or graphic material toward an individual or group that ridicules, denigrates, insults, belittles, or shows hostility, aversion, or disrespect.
+  - Bullying, intimidation, stalking, shaming, and assault.
+  - Retaliation for reporting harassment.
+  - Reporting an incident in bad faith.
+

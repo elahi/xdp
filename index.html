@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+<meta name="author" content="Spring 2019" />
+
+
+<title>Experimental design and probability</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-121894527-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-121894527-2');
+</script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">BIOHOPK-174H</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="materials.html">Materials</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Experimental design and probability</h1>
+<h3 class="subtitle"><em>Stanford University, Hopkins Marine Station</em></h3>
+<h4 class="author"><em>Spring 2019</em></h4>
+
+</div>
+
+
+<div id="syllabus" class="section level2">
+<h2>Syllabus</h2>
+<p><strong>Course description</strong><br />
+Variability is an integral part of biology. Introduction to probability and its use in designing experiments to address biological problems. Focus is on experimental design and the use of linear models in testing hypotheses (e.g., analysis of variance, regression). Students will use R to explore and analyze locally relevant biological datasets. No programming or statistical background is assumed. Prerequisite: consent of instructor.</p>
+<p>We will meet for 1.5 hours, twice a week. Classroom activities will be a mix of lecture, discussion, and collaborative problem solving. <strong>Please bring your laptop to all classroom sessions.</strong> Prior to class, students will complete a quiz which will be based on an assigned reading or video. All participants in the course will abide by the Code of Conduct, described below.</p>
+<p><strong>Instructor</strong><br />
+Robin Elahi<br />
+- Office: Boatworks dive locker<br />
+- Office hours: By appointment via email</p>
+<p><strong>Teaching assistant</strong><br />
+Nicole Moyen<br />
+- Office: Fisher<br />
+- Office hours:</p>
+<p><strong>E-communication</strong><br />
+You can email us at:<br />
+elahi at stanford<br />
+nmoyen at stanford<br />
+Please use your Stanford email for all correspondence.</p>
+<p><strong>Course website:</strong><br />
+<a href="https://elahi.github.io/xdp/" class="uri">https://elahi.github.io/xdp/</a><br />
+This course website runs from a repository on GitHub. You can view this repository here:<br />
+<a href="https://github.com/elahi/xdp" class="uri">https://github.com/elahi/xdp</a><br />
+Throughout the quarter, I will update the repository and website to reflect our progress. Please keep checking back to stay up to date.</p>
+<p><strong>Times and Rooms:</strong><br />
+2:30-4pm; Mondays &amp; Wednesdays; Agassiz 11</p>
+<p><strong>Textbook</strong></p>
+</div>
+<div id="schedule" class="section level2">
+<h2>Schedule</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Week</th>
+<th>Topics</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Introduction; sampling; descriptive statistics</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Probability; probability distributions</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Confidence intervals; hypothesis testing</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Experimental design</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>Analysis of variance</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>Regression</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>General linear models</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>Combining categorical and continuous predictors</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>Interactions between predictors</td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td>Blocked designs</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="learning-objectives" class="section level2">
+<h2>Learning objectives</h2>
+<p>Students will:</p>
+<ol style="list-style-type: decimal">
+<li>learn the basics of historical ecology with a focus on marine systems</li>
+<li>learn about the ecology of rocky intertidal shores through lecture and field activities</li>
+<li>practice the process and skills of research science (‘scientific method’)
+<ul>
+<li>search for, review, and synthesize primary literature and unpublished student reports</li>
+<li>develop a research question and generate testable hypotheses</li>
+<li>gather empirical field data to test hypotheses</li>
+<li>analyze and interpret data using the R programming language</li>
+<li>form conclusions based on rigorous scientific evidence</li>
+<li>communicate results via oral and written formats</li>
+<li>learn best practices for data archival and reproducibility</li>
+</ul></li>
+<li>participate in peer review</li>
+<li>explore science career possibilities and training pathways</li>
+</ol>
+</div>
+<div id="evaluation-and-grading" class="section level2">
+<h2>Evaluation and grading</h2>
+<p>Here is a breakdown of graded tasks:</p>
+<ul>
+<li>Quizzes (30%)</li>
+<li>Exams (40%)</li>
+<li>Final presentation (20%)</li>
+<li>Attendance &amp; participation (10%)</li>
+</ul>
+</div>
+<div id="notes" class="section level2">
+<h2>Notes</h2>
+<p>Instructor may change the activities schedule or meeting location. You will be notified of any changes.</p>
+<p>Use of your personal computer for in-class exercises, such as data analysis and literature searches, is highly recommended. Please let your instructor/TA know if you do not have a computer so we may make classroom arrangements.</p>
+<p><strong>Plagiarism, Dishonesty, and Academic Misconduct</strong></p>
+<p>At the University level, passing anyone else’s scholarly work, which can include: written material, exam answers, graphics or other images, and even ideas as your own, without proper attribution, is considered academic misconduct. Plagiarism, cheating, and other misconduct, including bullying, discrimination, and harassment, are serious violations of the University’s <em>Fundamental Standard</em> and <em>Honor Code</em>:</p>
+<p><a href="https://communitystandards.stanford.edu/policies-and-guidance" class="uri">https://communitystandards.stanford.edu/policies-and-guidance</a></p>
+<p>Any suspected violations of the code will be referred to the Stanford Office of Community Standards.</p>
+<p><strong>Students with Documented Disabilities</strong></p>
+<p>Students who may need an academic accommodation based on the impact of a disability must initiate the request with the Office of Accessible Education (OAE). Professional staff will evaluate the request with required documentation, recommend reasonable accommodations, and prepare an Accommodation Letter for faculty dated in the current quarter in which the request is being made. Students should contact the OAE as soon as possible since timely notice is needed to coordinate accommodations. The OAE is located at 563 Salvatierra Walk (phone: 723-1066, URL: <a href="http://studentaffairs.stanford.edu/oae" class="uri">http://studentaffairs.stanford.edu/oae</a>).</p>
+<p><strong>Affordability of Course Materials</strong></p>
+<p>Stanford University and its instructors are committed to ensuring that all courses are financially accessible to all students. If you are an undergraduate who needs assistance with the cost of course textbooks, supplies, materials and/or fees, you are welcome to approach me directly. If would prefer not to approach me directly, please note that you can ask the Diversity &amp; First-Gen Office for assistance by completing their questionnaire on course textbooks &amp; supplies: <a href="http://tinyurl.com/jpqbarn" class="uri">http://tinyurl.com/jpqbarn</a> or by contacting Joseph Brown, the Associate Director of the Diversity and First-Gen Office (<a href="mailto:jlbrown@stanford.edu">jlbrown@stanford.edu</a>; Old Union Room 207). Dr. Brown is available to connect you with resources and support while ensuring your privacy.</p>
+<p><strong>Roles and Responsibilities</strong></p>
+<p><em>Student</em>: inform the instructor no later than the first week of the quarter of any accommodation(s) you will or may potentially require.<br />
+<em>Instructors</em>: maintain strict confidentiality of any student’s disability and accommodations; help all students meet the learning objectives of this course.</p>
+</div>
+<div id="before-class" class="section level2">
+<h2>Before Class</h2>
+<div id="r-and-rstudio" class="section level3">
+<h3><code>R</code> and <code>RStudio</code></h3>
+<p>Before the first class please read through the <a href="https://elahi.github.io/00-setup-R.html">computer setup instructions</a> that walk you through how to set up your computer to run R and Rstudio. Even if you have these programs already installed, make sure to check that you are running the latest versions of R and RStudio (which the instructions will tell you how to do).</p>
+<p>If you are unfamiliar with R and RStudio:<br />
+<a href="https://elahi.github.io/01-A-R-intro.html">Intro to R &amp; RStudio</a><br />
+<a href="https://elahi.github.io/01-B-Rmarkdown-intro.html">Intro to R markdown</a></p>
+</div>
+</div>
+<div id="code-of-conduct" class="section level2">
+<h2>Code of conduct</h2>
+<p>I will maintain a respectful environment where everyone can engage in an open discussion and bring their strengths and weaknesses to the table without apprehension. Any behavior that detracts from these goals will not be tolerated.</p>
+<p>Expected behavior includes (but is not limited to):</p>
+<ul>
+<li>Treating all participants with respect and consideration.</li>
+<li>Communicating openly with respect for others, critiquing ideas rather than individuals.</li>
+<li>Avoiding personal attacks directed toward others.</li>
+</ul>
+<p>Unacceptable behavior includes (but is not limited to):</p>
+<ul>
+<li>Behavior that implies or indicates that someone does not belong in the class based on any personal characteristic or identity.</li>
+<li>Any unwanted attention, sexual advances, and comments about appearance.</li>
+<li>Verbal harassment, including comments, epithets, slurs, threats, and negative stereotyping that are offensive, hostile, disrespectful, or unwelcome.</li>
+<li>Non-verbal harassment, including actions or distribution, display, or discussion of any written or graphic material toward an individual or group that ridicules, denigrates, insults, belittles, or shows hostility, aversion, or disrespect.</li>
+<li>Bullying, intimidation, stalking, shaming, and assault.</li>
+<li>Retaliation for reporting harassment.</li>
+<li>Reporting an incident in bad faith.</li>
+</ul>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
