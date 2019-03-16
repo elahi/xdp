@@ -48,6 +48,14 @@ Throughout the quarter, I will update the repository and website to reflect our 
 
 **Textbook**
 
+We will use a variety of resources in this course. Whenever possible, I will use freely available material online to supplement the materials I prepare. Occasionally, I will refer you to textbooks that we have on reserve in the library. 
+
+In particular, we will use:
+
+[Open intro statistics, 3rd edition](https://www.openintro.org/stat/)
+
+Specific readings will be detailed on the materials page on a weekly basis. 
+
 ## Schedule
 
 | Week | Topics                                               |
@@ -63,28 +71,17 @@ Throughout the quarter, I will update the repository and website to reflect our 
 | 9    | Interactions between predictors     |
 | 10   | Blocked designs      |
 
+Details on assignments and readings are on the [materials](https://elahi.github.io/xdp/materials)  page. 
+
 ## Learning objectives
 
 Students will:
-
-  1. learn the basics of historical ecology with a focus on marine systems
-  2. learn about the ecology of rocky intertidal shores through lecture and field activities
-  3. practice the process and skills of research science ('scientific method')
-    - search for, review, and synthesize primary literature and unpublished student reports
-    - develop a research question and generate testable hypotheses
-    - gather empirical field data to test hypotheses
-    - analyze and interpret data using the R programming language
-    - form conclusions based on rigorous scientific evidence
-    - communicate results via oral and written formats
-    - learn best practices for data archival and reproducibility
-  4. participate in peer review
-  5. explore science career possibilities and training pathways
 
 ## Evaluation and grading
 
 Here is a breakdown of graded tasks:
 
-  - Quizzes (30%)
+  - Pre-class quizzes on canvas (30%)
   - Exams (40%)
   - Final presentation (20%)
   - Attendance & participation (10%)
