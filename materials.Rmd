@@ -21,3 +21,5 @@ If you are unfamiliar with R and RStudio:
 
 
 ## Week 1
+
+### Day 1

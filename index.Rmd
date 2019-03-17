@@ -6,7 +6,7 @@ output:
   html_document:
     theme: cosmo
     toc: yes
-    toc_depth: 3
+    toc_depth: 2
     toc_float: yes
 ---
 
@@ -38,7 +38,7 @@ nmoyen at stanford
 Please use your Stanford email for all correspondence. 
 
 **Course website:**  
-[https://elahi.github.io/xdp/](https://elahi.github.io/xdp/)  
+[https://elahi.github.io/xdp](https://elahi.github.io/xdp)  
 This course website runs from a repository on GitHub. You can view this repository here:  
 [https://github.com/elahi/xdp](https://github.com/elahi/xdp)  
 Throughout the quarter, I will update the repository and website to reflect our progress. Please keep checking back to stay up to date. 
@@ -54,15 +54,15 @@ In particular, we will use:
 
 [Open intro statistics, 3rd edition](https://www.openintro.org/stat/)
 
-Specific readings will be detailed on the materials page on a weekly basis. 
+[Modern dive: Statistical inference via data science](https://moderndive.com/)
 
 ## Schedule
 
 | Week | Topics                                               |
 |------|------------------------------------------------------|
-| 1    | Introduction; sampling; descriptive statistics       |
+| 1    | Introduction; sampling; descriptive statistics |
 | 2    | Probability; probability distributions | 
-| 3    | Confidence intervals; hypothesis testing             |
+| 3    | Confidence intervals; hypothesis testing   |
 | 4    | Experimental design      |
 | 5    | Analysis of variance       |
 | 6    | Regression       |
@@ -71,11 +71,18 @@ Specific readings will be detailed on the materials page on a weekly basis.
 | 9    | Interactions between predictors     |
 | 10   | Blocked designs      |
 
-Details on assignments and readings are on the [materials](https://elahi.github.io/xdp/materials)  page. 
+Details on assignments and readings are on the [materials](https://elahi.github.io/xdp/materials) page. 
 
 ## Learning objectives
 
-Students will:
+This course is a practical introduction to data analysis and experimental design for biologists and environmental scientists. Upon completion of the course, students will be able to:
+
+  1. design experiments with appropriate considerations of controls, randomization, and blocking
+  2. assemble and prepare data in spreadsheets
+  3. produce and interpret effective graphical displays of data
+  4. describe the utility and limitations of null hypothesis significance testing
+  5. understand the framework of general linear models and apply basic analytical tools for inference
+  6. use R for data analysis and visualization
 
 ## Evaluation and grading
 
@@ -94,9 +101,7 @@ Use of your personal computer for in-class exercises, such as data analysis and 
 
 **Plagiarism, Dishonesty, and Academic Misconduct**
 
-It is expected that Stanford’s Honor Code will be followed in all matters relating to this course. You are encouraged to meet and exchange ideas with your classmates while studying and working on homework assignments, but you are individually responsible for your own work and for understanding the material. You are not permitted to copy or otherwise reference another student’s homework or computer code. If you have any questions regarding this policy, feel free to contact Dr. Robin Elahi. 
-
-At the University level, passing anyone else's scholarly work, which can include: written material, exam answers, graphics or other images, and even ideas as your own, without proper attribution, is considered academic misconduct. 
+It is expected that Stanford’s Honor Code will be followed in all matters relating to this course. You are encouraged to meet and exchange ideas with your classmates while studying and working on homework assignments, but you are individually responsible for your own work and for understanding the material. Passing anyone else's scholarly work, which can include: written material, computer code, exam answers, graphics or other images, and even ideas as your own, without proper attribution, is considered academic misconduct. 
 
 Plagiarism, cheating, and other misconduct, including bullying, discrimination, and harassment, are serious violations of the University's *Fundamental Standard* and *Honor Code*:
 
