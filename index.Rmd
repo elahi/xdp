@@ -85,10 +85,11 @@ This course is a practical introduction to data analysis and experimental design
 
 Here is a breakdown of graded tasks:
 
-  - Pre-class quizzes on canvas (30%)
-  - Exams (40%)
-  - Final presentation (20%)
-  - Attendance & participation (10%)
+  - Quizzes (40%)
+  - Labs (40%)
+  - Final exam (20%)
+
+Late submissions will not be accepted, but the lowest graded quiz and lab will be dropped. 
 
 ## Notes
 
