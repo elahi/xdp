@@ -73,9 +73,9 @@ Details on assignments and readings are on the [materials](https://elahi.github.
 
 ## Learning objectives
 
-This course is a practical introduction to data analysis and experimental design for biologists and environmental scientists. Upon completion of the course, students will be able to:
+This course is a practical introduction to data analysis and experimental design for biologists and environmental scientists. Upon completion of the course, students will:
   
-  1. Recognize the importance of data collection, identify limitations in data collection methods, and become aware of other sources of statistical bias. 
+  1. Recognize the importance of data collection, identify limitations in data collection methods, and be aware of other sources of statistical bias. 
   
   2. Use the programming language `R` to summarize data numerically and visually, and to perform data analysis. 
   
@@ -89,7 +89,7 @@ This course is a practical introduction to data analysis and experimental design
   
   7. Critique data-based claims and evaluate data-based decisions.
   
-  8. Design experiments with appropriate considerations of controls, randomization, and blocking
+  8. Design experiments with appropriate considerations of controls, randomization, and blocking. 
 
 ## Evaluation and grading
 
@@ -100,6 +100,16 @@ Here is a breakdown of graded tasks:
   - Final exam (20%)
 
 Late submissions will not be accepted, but the lowest graded quiz and lab will be dropped. 
+
+## Tips for success
+
+- Complete the readings before class, to prime you for class lessons (not to mention the quizzes). Then go over the readings again. 
+
+- Be an active participant during lectures and labs.
+
+- Ask questions - especially during class or office hours. Ask me, your TA, and your classmates.
+
+- Do not procrastinate - don’t let a week go by with unanswered questions as it will just make the following week’s material even more difficult to follow.
 
 ## Notes
 
