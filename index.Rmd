@@ -48,25 +48,25 @@ Throughout the quarter, I will update the repository and website to reflect our 
 
 **Textbook**
 
-We will use a variety of resources in this course. The two primary ones are:
+We will use a variety of resources in this course. The primary one is:
 
 [Open intro statistics, 3rd edition](https://www.openintro.org/stat/) - freely available as a pdf (or get a print copy for ~$15). 
 
-[Experimental Design and Data Analysis for Biologists](https://www.cambridge.org/us/academic/subjects/life-sciences/ecology-and-conservation/experimental-design-and-data-analysis-biologists?format=PB&isbn=9780521009768) - on reserve at the library
+The others will be online resources for learning the basics of data science using `R`.
 
 ## Schedule
 
 | Week | Topics                                               |
 |------|------------------------------------------------------|
-| 1    | Introduction; sampling; descriptive statistics |
-| 2    | Probability; probability distributions | 
-| 3    | Confidence intervals; hypothesis testing   |
-| 4    | Experimental design      |
-| 5    | Analysis of variance       |
-| 6    | Regression       |
-| 7    | General linear models      |
-| 8    | Combining categorical and continuous predictors       |
-| 9    | Interactions between predictors     |
+| 1    | Intro to course, data, and R |
+| 2    | Sampling, descriptive statistics, data viz | 
+| 3    | Intro to probability   |
+| 4    | Normal distribution, intro to inference      |
+| 5    | Hypothesis testing      |
+| 6    | Inference for numerical data      |
+| 7    | Analysis of variance      |
+| 8    | Regression       |
+| 9    | General linear models, multiple predictors     |
 | 10   | Blocked designs      |
 
 Details on assignments and readings are on the [materials](https://elahi.github.io/xdp/materials) page. 
@@ -74,12 +74,22 @@ Details on assignments and readings are on the [materials](https://elahi.github.
 ## Learning objectives
 
 This course is a practical introduction to data analysis and experimental design for biologists and environmental scientists. Upon completion of the course, students will be able to:
-
-  1. design experiments with appropriate considerations of controls, randomization, and blocking
-  2. produce and interpret effective graphical displays of data
-  3. describe the utility and limitations of null hypothesis significance testing
-  4. understand the framework of general linear models and apply basic analytical tools for inference
-  5. use R for data analysis and visualization
+  
+  1. Recognize the importance of data collection, identify limitations in data collection methods, and become aware of other sources of statistical bias. 
+  
+  2. Use the programming language `R` to summarize data numerically and visually, and to perform data analysis. 
+  
+  3. Have a conceptual understanding of the unified nature of statistical inference.
+  
+  4. Apply estimation and testing methods to analyze single variables or the relationship between two variables in order to understand biological phenomena. 
+  
+  5. Model numerical response variables using a single explanatory variable or multiple explanatory variables in order to investigate relationships between variables.
+  
+  6. Interpret results correctly, effectively, and in context without relying on statistical jargon.
+  
+  7. Critique data-based claims and evaluate data-based decisions.
+  
+  8. Design experiments with appropriate considerations of controls, randomization, and blocking
 
 ## Evaluation and grading
 
