@@ -9,17 +9,35 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+| week | date   | day | topic                                            | os3       |
+|------|--------|-----|--------------------------------------------------|-----------|
+| 1    | 1-Apr  | M   | Intro to course; data basics                     | 1.1, 1.2  |
+| 1    | 3-Apr  | W   | Intro to R and Rstudio                           |           |
+| 2    | 8-Apr  | M   | Sampling; observational and experimental studies | 1.3 - 1.5 |
+| 2    | 10-Apr | W   | Numerical and categorical data                   | 1.6, 1.7  |
+| 3    | 15-Apr | M   | Probability                                      | 2.1       |
+| 3    | 17-Apr | W   | Conditional probability                          | 2.2       |
+| 4    | 22-Apr | M   | Normal distribution                              | 3.1       |
+| 4    | 24-Apr | W   | Estimates; confidence intervals                  | 4.1, 4.2  |
+| 5    | 29-Apr | M   | Hypothesis testing                               | 4.3       |
+| 5    | 1-May  | W   | Central limit theorem                            | 4.4       |
+| 6    | 6-May  | M   | Paired and unpaired t-tests                      | 5.1, 5.2  |
+| 6    | 8-May  | W   | Difference of two means; power                   | 5.3, 5.4  |
+| 7    | 13-May | M   | Analysis of variance I                           | 5.5       |
+| 7    | 15-May | W   | Analysis of variance II                          |           |
+| 8    | 20-May | M   | Regression I                                     | 7.1, 7.2  |
+| 8    | 22-May | W   | Regression II                                    | 7.3, 7.4  |
+| 9    | 27-May | M   | No class - Memorial Day                          |           |
+| 9    | 29-May | W   | General linear models; multiple predictors       | 8.1, 8.3  |
+| 10   | 3-Jun  | M   | Interactions between predictors                  |           |
+| 10   | 5-Jun  | W   | Blocked designs                                  |           |
+
+**os3** refers to the Open Intro stats book. Supplemental readings are described below. 
+
 ## Before Class 
 
 ### `R` and `RStudio`
 
 Before the first class please read through the [computer setup instructions](https://elahi.github.io/00-setup-R.html) that walk you through how to set up your computer to run R and Rstudio. Even if you have these programs already installed, make sure to check that you are running the latest versions of R and RStudio (which the instructions will tell you how to do). 
 
-If you are unfamiliar with R and RStudio:  
-[Intro to R & RStudio](https://elahi.github.io/01-A-R-intro.html)   
-[Intro to R markdown](https://elahi.github.io/01-B-Rmarkdown-intro.html)
-
-
 ## Week 1
-
-### Day 1
