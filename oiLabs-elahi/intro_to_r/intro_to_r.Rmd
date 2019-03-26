@@ -1,5 +1,5 @@
 ---
-title: "Introduction to R and RStudio"
+title: "Introduction to R, RStudio, and Rmarkdown"
 output:
   pdf_document: default
   html_document:
@@ -12,7 +12,7 @@ The goal of this lab is to introduce you to R and RStudio, which you'll be using
 throughout the course both to learn the statistical concepts discussed in the 
 texbook and also to analyze real data and come to informed conclusions.  To 
 straighten out which is which: R is the name of the programming language itself 
-and RStudio is a convenient interface.
+and RStudio is a convenient interface. Part of the beauty of RStudio is its seamless integration of document preparation using Rmarkdown, which will be covered at the very end of this document. 
 
 As the labs progress, you are encouraged to explore beyond what the labs dictate;
 a willingness to experiment will make you a much better programmer.  Before we 
@@ -261,6 +261,8 @@ then start up RStudio again.
 
 ## On Your Own
 
+### Present day birth records in the U.S.
+
 In the previous few pages, you recreated some of the displays and preliminary 
 analysis of Arbuthnot's baptism data. Your assignment involves repeating these 
 steps, but for present day birth records in the United States.  Load up the 
@@ -292,14 +294,21 @@ These data come from a report by the Centers for Disease Control
 Check it out if you would like to read more about an analysis of sex ratios at 
 birth in the United States.
 
-That was a short introduction to R and RStudio, but we will provide you with more
-functions and a more complete sense of the language as the course progresses. 
-Feel free to browse around the websites for [R](http://www.r-project.org) and 
-[RStudio](http://rstudio.org) if you're interested in learning more, or find 
-more labs for practice at http://openintro.org.
+### Writing up your answers in R markdown 
 
+Read the following websites:
+
+https://rmarkdown.rstudio.com/articles_intro.html
+
+You should practice knitting an html file. For more details, see:
+
+https://r4ds.had.co.nz/r-markdown.html
+
+Once you start feeling comfortable, create a new .Rmd file that answers the above questions about the present day birth records in the U.S. Include both text (the questions, and your answers), as well as the R code needed to produce the answers (as well as the answers). Knit the file to an html file, and send it to Robin via email for your first lab assignment. 
+
+## License
 <div id="license">
-This is a product of OpenIntro that is released under a 
+This is a derivative product of OpenIntro, by Robin Elahi, that is released under a 
 [Creative Commons Attribution-ShareAlike 3.0 Unported](http://creativecommons.org/licenses/by-sa/3.0). 
 This lab was adapted for OpenIntro by Andrew Bray and Mine &Ccedil;etinkaya-Rundel
 from a lab written by Mark Hansen of UCLA Statistics.

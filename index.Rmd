@@ -58,8 +58,8 @@ The others will be online resources for learning the basics of data science usin
 
 | Week | Topics                                               |
 |------|------------------------------------------------------|
-| 1    | Intro to course, data, and R |
-| 2    | Sampling, descriptive statistics, data viz | 
+| 1    | Intro to course, data collection, and R |
+| 2    | Numerical and categorical data, data viz | 
 | 3    | Intro to probability   |
 | 4    | Normal distribution, intro to inference      |
 | 5    | Hypothesis testing      |
