@@ -6,6 +6,8 @@ output:
     css: ../lab.css
     highlight: pygments
     theme: cerulean
+editor_options:
+  chunk_output_type: console
 ---
 
 The goal of this lab is to introduce you to R and RStudio, which you'll be using
@@ -13,7 +15,6 @@ throughout the course both to learn the statistical concepts discussed in the
 texbook and also to analyze real data and come to informed conclusions.  To 
 straighten out which is which: R is the name of the programming language itself 
 and RStudio is a convenient interface. Part of the beauty of RStudio is its seamless integration of document preparation using Rmarkdown, which will be covered at the very end of this document. 
-
 As the labs progress, you are encouraged to explore beyond what the labs dictate;
 a willingness to experiment will make you a much better programmer.  Before we 
 get to that stage, however, you need to build some basic fluency in R.  Today we
@@ -138,6 +139,18 @@ of the number of girls baptized per year with the command
 plot(x = arbuthnot$year, y = arbuthnot$girls)
 ```
 
+The following code will create the same figure:
+```{r, eval = FALSE}
+with(arbuthnot, plot(girls ~ year))
+```
+
+What do you think the function `with` is doing?
+
+And finally, we can use `~` syntax to recreate the same figure - read this as "the number of girls on the y-axis as a function of year on the x-axis":
+```{r, eval = FALSE}
+plot(girls ~ year, data = arbuthnot)
+```
+
 By default, R creates a scatterplot with each x,y pair indicated by an open 
 circle. The plot itself should appear under the *Plots* tab of the lower right 
 panel of RStudio. Notice that the command above again looks like a function, 
@@ -259,7 +272,17 @@ then start up RStudio again.
 
 * * *
 
-## On Your Own
+## Assignment 1 - due April 5, 5pm
+
+### Your first assignment in R markdown 
+
+We have been executing the above R code in an .Rmd document for practice. For a bit more detail, read the following websites:
+
+https://rmarkdown.rstudio.com/articles_intro.html
+
+https://r4ds.had.co.nz/r-markdown.html
+
+For the assignment below, create a new .Rmd file entitled `birth_records_xxx.Rmd` where `xxx` is your last name - e.g., `birth_records_elahi.Rmd`. In this file, answer the questions about the present day birth records in the U.S. Include both text (the questions, and your answers), as well as the R code needed to produce the answers (as well as the answers). Knit the file to an html file (e.g., `birth_records_elahi.html`), and send it to Robin via email for your first lab assignment. 
 
 ### Present day birth records in the U.S.
 
@@ -294,17 +317,6 @@ These data come from a report by the Centers for Disease Control
 Check it out if you would like to read more about an analysis of sex ratios at 
 birth in the United States.
 
-### Writing up your answers in R markdown 
-
-Read the following websites:
-
-https://rmarkdown.rstudio.com/articles_intro.html
-
-You should practice knitting an html file. For more details, see:
-
-https://r4ds.had.co.nz/r-markdown.html
-
-Once you start feeling comfortable, create a new .Rmd file that answers the above questions about the present day birth records in the U.S. Include both text (the questions, and your answers), as well as the R code needed to produce the answers (as well as the answers). Knit the file to an html file, and send it to Robin via email for your first lab assignment. 
 
 ## License
 <div id="license">

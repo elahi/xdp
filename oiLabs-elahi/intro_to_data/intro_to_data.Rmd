@@ -1,10 +1,13 @@
 ---
 title: "Introduction to data"
 output:
+  pdf_document: default
   html_document:
-    theme: cerulean
-    highlight: pygments
     css: ../lab.css
+    highlight: pygments
+    theme: cerulean
+editor_options: 
+  chunk_output_type: console
 ---
 
 Some define Statistics as the field that focuses on turning information into
