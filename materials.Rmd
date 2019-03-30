@@ -1,8 +1,11 @@
 ---
 title: "Course materials"
-output: 
-  html_document: 
+output:
+  html_document:
     theme: cosmo
+    toc: yes
+    toc_depth: 2
+    toc_float: yes
 ---
 
 ```{r setup, include=FALSE}
@@ -22,6 +25,12 @@ Before the first class please read through the [computer setup instructions](htt
 ## Week 1
 
 ### Monday
+
+Introduction to course
+
+[Mussel measurements](https://docs.google.com/spreadsheets/d/1Dh0-o0Ot6VsAXBCFV4VzEOrx538wM92Va2DjYhPoLA0/edit#gid=0)
+
+Data collection
 
 #### Assignment for Wednesday
 Install R and Rstudio on your computer (if you haven't already!), and read the following website:  
