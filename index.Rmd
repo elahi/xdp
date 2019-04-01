@@ -3,6 +3,9 @@ title: "Experimental design and probability"
 author: "Spring 2019"
 subtitle: Stanford University, Hopkins Marine Station
 output:
+  pdf_document:
+    toc: yes
+    toc_depth: '2'
   html_document:
     theme: cosmo
     toc: yes
