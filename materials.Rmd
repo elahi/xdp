@@ -26,13 +26,11 @@ Before the first class please read through the [computer setup instructions](htt
 
 ### Monday
 
-Introduction to course
+- [Introduction to course](slides/course_intro.pdf) 
+- Data collection
+- [Mussel measurements](https://docs.google.com/spreadsheets/d/1Dh0-o0Ot6VsAXBCFV4VzEOrx538wM92Va2DjYhPoLA0/edit#gid=0)
 
-[Mussel measurements](https://docs.google.com/spreadsheets/d/1Dh0-o0Ot6VsAXBCFV4VzEOrx538wM92Va2DjYhPoLA0/edit#gid=0)
-
-Data collection
-
-#### Assignment for Wednesday
+*Prep for Wednesday*  
 Install R and Rstudio on your computer (if you haven't already!), and read the following website:  
 https://datacarpentry.org/R-ecology-lesson/00-before-we-start.html
 
@@ -48,13 +46,21 @@ When you get to the part about the working directory - create a new folder on yo
 
 ### Wednesday
 
-Intro to R, Rstudio, and Rmarkdown. 
+[Intro to R and Rstudio](https://datacarpentry.org/R-ecology-lesson/01-intro-to-r.html)
+
+The first assignment is [here](oiLabs-elahi/intro_to_r/intro_to_r.pdf). I suggest that you work through the material first in a plain R script (file name ends with `.R`). Once you are comfortable with the basics of plotting from vectors within a dataframe, then write up the answers to the questions in an `.Rmd` file. A tutorial on using .Rmd files is [here](https://elahi.github.io/01-B-Rmarkdown-intro.html), and we'll get some practice using `.Rmd` files next Monday. 
 
 ## Week 2
 ### Monday
 
+- Quiz 1
+- Finish up data collection
+- Examining numerical and categorical data; data viz
 
 ### Wednesday
+- Examining numerical and categorical data; data viz
+
+
 
 ## Week 3
 ### Monday
