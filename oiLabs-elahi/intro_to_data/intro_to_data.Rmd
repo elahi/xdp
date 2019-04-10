@@ -435,7 +435,11 @@ will serve us well throughout this course.
 
 * * *
 
-## On Your Own
+## Assignment 2
+
+For the exercises below, create a new .Rmd file entitled `brfss_xxx.Rmd` where `xxx` is your last name - e.g., `brfss_elahi.Rmd`. Include text (the questions, and your answers), as well as the R code needed to produce the answers. Knit the file to an html file (e.g., `brfss_elahi.html`), and send it to Robin via email. 
+
+**For all plots, use `ggplot2`**
 
 -   Make a scatterplot of weight versus desired weight. Describe the 
     relationship between these two variables.
@@ -460,9 +464,10 @@ will serve us well throughout this course.
     `weight` and determine what proportion of the weights are within one 
     standard deviation of the mean.
 
+## License
 <div id="license">
-This is a product of OpenIntro that is released under a 
+This is a derivative product of OpenIntro, by Robin Elahi, that is released under a 
 [Creative Commons Attribution-ShareAlike 3.0 Unported](http://creativecommons.org/licenses/by-sa/3.0). 
-This lab was adapted for OpenIntro by Andrew Bray and Mine &Ccedil;etinkaya-Rundel 
+This lab was adapted for OpenIntro by Andrew Bray and Mine &Ccedil;etinkaya-Rundel
 from a lab written by Mark Hansen of UCLA Statistics.
 </div>

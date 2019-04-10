@@ -62,8 +62,9 @@ The first assignment is [here](oiLabs-elahi/intro_to_r/intro_to_r.pdf). I sugges
 - Examining numerical and categorical data; data viz
 
 - In advance of class, please read and work through:
-  - https://r4ds.had.co.nz/data-visualisation.html
+    - https://r4ds.had.co.nz/data-visualisation.html
 
+- The second assignment is [here](oiLabs-elahi/intro_to_data/intro_to_data.pdf), and due in one week. 
 
 ## Week 3
 ### Monday
