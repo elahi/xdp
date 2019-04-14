@@ -253,9 +253,13 @@ a hot hand.
 
 * * *
 
-## On your own
+## Assignment 3
 
 ### Comparing Kobe Bryant to the Independent Shooter
+
+For the exercises below, create a new .Rmd file entitled `kobe_xxx.Rmd` where `xxx` is your last name - e.g., `kobe_elahi.Rmd`. Include text (the questions, and your answers), as well as the R code needed to produce the answers. Knit the file to an html file (e.g., `kobe_elahi.html`), and send it to Robin via email. 
+
+**For all plots, use `ggplot2`**
 
 Using `calc_streak`, compute the streak lengths of `sim_basket`.
 
@@ -274,7 +278,7 @@ Using `calc_streak`, compute the streak lengths of `sim_basket`.
     shooting patterns? Explain.
 
 <div id="license">
-This is a product of OpenIntro that is released under a 
+This is a derivative product of OpenIntro, by Robin Elahi, that is released under a 
 [Creative Commons Attribution-ShareAlike 3.0 Unported](http://creativecommons.org/licenses/by-sa/3.0). 
 This lab was adapted for OpenIntro by Andrew Bray and Mine &Ccedil;etinkaya-Rundel
 from a lab written by Mark Hansen of UCLA Statistics.
