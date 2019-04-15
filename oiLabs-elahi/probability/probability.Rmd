@@ -257,7 +257,7 @@ a hot hand.
 
 ### Comparing Kobe Bryant to the Independent Shooter
 
-For the exercises below, create a new .Rmd file entitled `kobe_xxx.Rmd` where `xxx` is your last name - e.g., `kobe_elahi.Rmd`. Include text (the questions, and your answers), as well as the R code needed to produce the answers. Knit the file to an html file (e.g., `kobe_elahi.html`), and send it to Robin via email. 
+For the exercises below, create a new .Rmd file entitled `kobe_xxx.Rmd` where `xxx` is your last name - e.g., `kobe_elahi.Rmd`. Include text (the questions, and your answers), as well as the R code needed to produce the answers. Knit the file to a word file (e.g., `kobe_elahi.docx`), and send it to Robin via email. 
 
 **For all plots, use `ggplot2`**
 

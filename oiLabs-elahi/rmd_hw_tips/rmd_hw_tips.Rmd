@@ -1,0 +1,65 @@
+---
+title: "Tips for formatting Rmd output"
+author: "Robin Elahi"
+date: "`r format(Sys.Date())`"
+output:
+  word_document: 
+    highlight: pygments
+editor_options:
+  chunk_output_type: console
+---
+
+```{r include = FALSE, cache = FALSE}
+# This code block sets up the r session when the page is rendered to word
+
+# General options
+knitr::opts_chunk$set(echo = TRUE, eval = TRUE, include = TRUE,  
+                      message = FALSE, warning = FALSE, 
+                      cache = FALSE, par = FALSE)
+
+# Figure options
+knitr::opts_chunk$set(fig.align = 'center', fig.show = 'asis', 
+                      fig.width = 3.5, fig.height = 3.5) 
+
+```
+
+Render your output as a word document - see above in `yaml` header.  
+
+Include an author field in the `yaml` header - with your name. 
+
+In general, be concise with your answers and the R code necessary to demonstrate that you know how to get the answers. Do not include pages of output - e.g., an dataframe with 100's of lines. 
+
+Use `>` to highlight your answers in text. E.g.:   
+
+> My answer to this question is correct. Make sure there is a space between this line and the previous one.  
+> Make sure that you use 2 spaces at the end of the previous sentence to get this on the next line.  
+> This is important for me (Robin), as it helps me identify your answers (vs the questions). 
+
+If you are doing some preliminary inspection of the data, or testing out some things - but you don't want this in the rendered file that you submit - then use `eval = FALSE` in the code chunk. But if you need the code to be evaluated, but you don't want to show the code - then use `echo = FALSE`. If you don't want to show the results of the code, then use `results = "hide"`. 
+
+## Examples
+
+I want to evaluate this code (b/c I need the data in downstream chunks), but I don't want to show it in the rendered file:
+```{r load-present-data, echo = FALSE}
+source("http://www.openintro.org/stat/data/present.R")
+```
+
+Echo (show) the code, but don't show the results:
+```{r, results = "hide"}
+summary(present)
+dim(present)
+```
+
+Don't echo the code, but show the results:
+```{r, echo = FALSE}
+bg_ratio <- with(present, boys / girls)
+plot(present$year, bg_ratio, type = "l", xlab = "Year", ylab = "Boy:girl ratio")
+```
+
+For more information on how to change the chunk options see https://yihui.name/knitr/options/
+
+If you don't love the default Word rendering, you can change it here: https://rmarkdown.rstudio.com/articles_docx.html
+
+Inspect the code in this .Rmd file, and knit it to a word document to see the output. 
+
+

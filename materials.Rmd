@@ -68,4 +68,15 @@ The first assignment is [here](oiLabs-elahi/intro_to_r/intro_to_r.pdf). I sugges
 
 ## Week 3
 ### Monday
+
+- Quiz 2
+- Introduction to probability and conditional probability
+
 ### Wednesday
+
+- Bayes theorem and Bayesian inference
+- The third assignment is [here](oiLabs-elahi/probability/probability.pdf), and due in one week. 
+  - Note that I've added some tips on how to format your Rmd file so that the resulting word document is easy to read:
+  - 
+
+
