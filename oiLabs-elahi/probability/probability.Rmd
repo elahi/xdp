@@ -1,11 +1,11 @@
 ---
 title: "Probability"
 output:
-  pdf_document: default
   html_document:
     css: ../lab.css
     highlight: pygments
     theme: cerulean
+  pdf_document: default
 editor_options:
   chunk_output_type: console
 ---
@@ -257,7 +257,7 @@ a hot hand.
 
 ### Comparing Kobe Bryant to the Independent Shooter
 
-For the exercises below, create a new .Rmd file entitled `kobe_xxx.Rmd` where `xxx` is your last name - e.g., `kobe_elahi.Rmd`. Include text (the questions, and your answers), as well as the R code needed to produce the answers. Knit the file to a word file (e.g., `kobe_elahi.docx`), and send it to Robin via email. 
+For the exercises below, create a new .Rmd file entitled `kobe_xxx.Rmd` where `xxx` is your last name - e.g., `kobe_elahi.Rmd`. Include text (the questions, and your answers), as well as the R code needed to produce the answers. Knit the file to a word document (e.g., `kobe_elahi.docx`), and then **print it**! Hand in the printed copy at the beginning of class next Wednesday. Be efficient with your printing - do not include extensive lines of preliminary code or the output of long vectors or dataframes. Only print the questions, brief answers, and the minimum amount of code / output to demonstrate that you know how to get the answer. 
 
 **For all plots, use `ggplot2`**
 
