@@ -60,7 +60,6 @@ The first assignment is [here](oiLabs-elahi/intro_to_r/intro_to_r.pdf). I sugges
 ### Wednesday
 
 - Examining numerical and categorical data; data viz
-
 - In advance of class, please read and work through:
     - https://r4ds.had.co.nz/data-visualisation.html
 
@@ -70,13 +69,14 @@ The first assignment is [here](oiLabs-elahi/intro_to_r/intro_to_r.pdf). I sugges
 ### Monday
 
 - Quiz 2
-- Introduction to probability and conditional probability
+- Introduction to probability
 
 ### Wednesday
 
-- Bayes theorem and Bayesian inference
+- Conditional probability, Bayes theorem, and Bayesian inference
 - The third assignment is [here](oiLabs-elahi/probability/probability.pdf), and due in one week. 
-  - Note that I've added some tips on how to format your Rmd file so that the resulting word document is easy to read:
-  - 
+    - Note that I've added some tips on how to format your Rmd file so that the resulting word document is easy to read:
+    - https://raw.githubusercontent.com/elahi/xdp/master/oiLabs-elahi/rmd_hw_tips/rmd_hw_tips.Rmd
+    - You can see the rendered word file [here](oiLabs-elahi/rmd_hw_tips/rmd_hw_tips.docx)
 
 
