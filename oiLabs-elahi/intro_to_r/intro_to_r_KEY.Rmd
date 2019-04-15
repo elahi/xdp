@@ -1,0 +1,73 @@
+---
+title: "Introduction to R, RStudio, and Rmarkdown"
+output:
+  word_document: 
+    highlight: pygments
+editor_options:
+  chunk_output_type: console
+---
+
+```{r include = FALSE, cache = FALSE}
+# This code block sets up the r session when the page is rendered to html / word / pdf
+
+# Change general options
+knitr::opts_chunk$set(echo = TRUE, eval = TRUE, include = TRUE,  
+                      message = FALSE, warning = FALSE, 
+                      cache = FALSE, par = FALSE)
+
+# Set up figure options
+knitr::opts_chunk$set(fig.align = 'center', fig.show = 'asis', 
+                      fig.width = 3.5, fig.height = 3.5) # default fig sizes
+
+```
+
+### Present day birth records in the U.S.
+In the previous few pages, you recreated some of the displays and preliminary 
+analysis of Arbuthnot's baptism data. Your assignment involves repeating these 
+steps, but for present day birth records in the United States.  Load up the 
+present day data with the following command.
+
+```{r load-present-data}
+source("http://www.openintro.org/stat/data/present.R")
+```
+
+The data are stored in a data frame called `present`.
+
+What years are included in this data set? What are the dimensions of the data frame and what are the variable or column names?
+
+```{r}
+summary(present)
+dim(present)
+```
+
+> The years range from 1940 to 2002.  
+> The dimensions are 63 rows and 3 columns.  
+> The column names are year, boys, girls.  
+
+How do these counts compare to Arbuthnot's? Are they on a similar scale?
+
+> These counts are 3 orders of magnitude higher than Arbuthnot's. 
+
+Make a plot that displays the boy-to-girl ratio for every year in the data 
+    set. What do you see? Does Arbuthnot's observation about boys being born in
+    greater proportion than girls hold up in the U.S.? Include the plot in your 
+    response.
+
+```{r}
+bg_ratio <- with(present, boys / girls)
+plot(present$year, bg_ratio, type = "l", xlab = "Year", ylab = "Boy:girl ratio")
+```
+
+> The ratio is above 1, meaning that more boys than girls are being born in the US - similar to Arbuthnot. In addition, there is a decreasing trend. 
+
+In what year did we see the most total number of births in the U.S.? You can
+    refer to the help files or the R reference card 
+    [http://cran.r-project.org/doc/contrib/Short-refcard.pdf](http://cran.r-project.org/doc/contrib/Short-refcard.pdf)
+    to find helpful commands.
+
+```{r}
+births <- with(present, boys + girls)
+present$year[which.max(births)]
+```
+
+> The highest number of births occurred in 1961

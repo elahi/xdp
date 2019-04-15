@@ -78,5 +78,6 @@ The first assignment is [here](oiLabs-elahi/intro_to_r/intro_to_r.pdf). I sugges
     - Note that I've added some tips on how to format your Rmd file so that the resulting word document is easy to read:
     - https://raw.githubusercontent.com/elahi/xdp/master/oiLabs-elahi/rmd_hw_tips/rmd_hw_tips.Rmd
     - You can see the rendered word file [here](oiLabs-elahi/rmd_hw_tips/rmd_hw_tips.docx)
+    - As further examples, I've posted the .Rmd file and the corresponding word output for the first assignment (birth_records_xxx) in the github repository [here](https://github.com/elahi/xdp/tree/master/oiLabs-elahi/intro_to_r)
 
 
