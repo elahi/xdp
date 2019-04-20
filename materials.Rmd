@@ -80,4 +80,15 @@ The first assignment is [here](oiLabs-elahi/intro_to_r/intro_to_r.pdf). I sugges
     - You can see the rendered word file [here](oiLabs-elahi/rmd_hw_tips/rmd_hw_tips.docx)
     - As further examples, I've posted the .Rmd file and the corresponding word output for the first assignment (birth_records_xxx) in the github repository [here](https://github.com/elahi/xdp/tree/master/oiLabs-elahi/intro_to_r)
 
+## Week 4
+
+### Monday
+
+- Quiz 3
+- Probability distributions and the normal distribution
+
+### Wednesday
+
+- Sampling distributions and the central limit theorem
+- The fourth assignment is [here](oiLabs-elahi/sampling_distributions/sampling_distributions.html), and due in one week. 
 
