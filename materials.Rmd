@@ -85,10 +85,11 @@ The first assignment is [here](oiLabs-elahi/intro_to_r/intro_to_r.pdf). I sugges
 ### Monday
 
 - Quiz 3
-- Probability distributions and the normal distribution
+- The normal distribution
+- Practice with the normal distribution in R [here](oiLabs-elahi/normal_distribution/normal_distribution.html)
 
 ### Wednesday
 
-- Sampling distributions and the central limit theorem
+- Probability distributions, sampling distributions and the central limit theorem
 - The fourth assignment is [here](oiLabs-elahi/sampling_distributions/sampling_distributions.html), and due in one week. 
 
