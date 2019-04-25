@@ -6,6 +6,8 @@ output:
     highlight: pygments
     theme: cerulean
   pdf_document: default
+editor_options:
+  chunk_output_type: console
 ---
 
 In this lab, we investigate the ways in which the statistics from a random 
@@ -27,7 +29,7 @@ download.file("http://www.openintro.org/stat/data/ames.RData", destfile = "ames.
 load("ames.RData")
 ```
 
-```{r, eval = FALSE}
+```{r, eval = FALSE, echo = FALSE}
 load("oiLabs-elahi/sampling_distributions/more/ames.RData")
 ```
 
