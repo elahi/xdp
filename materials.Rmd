@@ -93,3 +93,18 @@ The first assignment is [here](oiLabs-elahi/intro_to_r/intro_to_r.pdf). I sugges
 - Probability distributions, sampling distributions and the central limit theorem
 - The fourth assignment is [here](oiLabs-elahi/sampling_distributions/sampling_distributions.html), and due in one week. 
 
+## Week 5
+
+### Monday
+
+- Quiz 4
+- [Displaying uncertainty in figures](primers/primer_displaying_uncertainty.pdf)
+- [Practice with confidence intervals](oiLabs-elahi/confidence_intervals/confidence_intervals.html)
+
+### Wednesday
+
+- Hypothesis testing
+- Paper discussion, [Amrhein et al. 2019](https://www.nature.com/articles/d41586-019-00857-9) (paper is on google team drive)
+- The fifth assignment is [here](oiLabs-elahi/inf_for_numerical_data/inf_for_numerical_data.html), and due in one week. 
+
+
