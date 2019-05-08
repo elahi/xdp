@@ -107,4 +107,14 @@ The first assignment is [here](oiLabs-elahi/intro_to_r/intro_to_r.pdf). I sugges
 - Paper discussion, [Amrhein et al. 2019](https://www.nature.com/articles/d41586-019-00857-9) (paper is on google team drive)
 - The fifth assignment is [here](oiLabs-elahi/inf_for_numerical_data/inf_for_numerical_data.html), and due in one week. 
 
+## Week 6
 
+### Monday
+
+- Quiz 5
+- T-tests
+
+### Wednesday
+
+- Type 1 and 2 errors; power analysis
+- The sixth assignment is [here](oiLabs-elahi/inf_for_numerical_data_2/inf_for_numerical_data_2.html), and due in one week. 
