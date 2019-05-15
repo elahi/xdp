@@ -118,3 +118,15 @@ The first assignment is [here](oiLabs-elahi/intro_to_r/intro_to_r.pdf). I sugges
 
 - Type 1 and 2 errors; power analysis
 - The sixth assignment is [here](oiLabs-elahi/inf_for_numerical_data_2/inf_for_numerical_data_2.html), and due in one week. 
+
+## Week 7
+
+### Monday
+
+- Quiz 6
+- Intro to ANOVA
+
+### Wednesday
+
+- More ANOVA: [slides](slides/slides_anova_1.html)
+
