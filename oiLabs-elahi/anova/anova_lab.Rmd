@@ -1,0 +1,52 @@
+---
+title: 'Analysis of variance'
+output:
+  html_document:
+    css: ../lab.css
+    highlight: pygments
+    theme: cerulean
+  pdf_document: default
+  editor_options:
+  chunk_output_type: console
+---
+
+```{r global_options, include=FALSE}
+knitr::opts_chunk$set(eval = FALSE)
+library(dplyr)
+library(ggplot2)
+```
+
+## Assignment 7
+
+For the exercises below, create a new .Rmd file entitled `anova_xxx.Rmd` where `xxx` is your last name. Include relevant text (describe the questions briefly, and your answers), as well as the R code needed to produce the answers. Knit the file to a word document and hand in the printed copy at the beginning of class next Wednesday. Be efficient with your printing - do not include extensive lines of preliminary code or the output of long vectors or dataframes. Only print the questions, brief answers, and the minimum amount of code / output to demonstrate that you know how to get the answer. 
+Throughout the lab, you will continue to use the `dplyr` package for data wrangling and summarization. For more details, see [r4ds chapter on data transformation](https://r4ds.had.co.nz/transform.html). Some of the relevant `dplyr` functions include: `count(), filter(), summarise(), mutate()`. You may also find it useful to refer to the ANOVA [slides](https://elahi.github.io/xdp/slides/slides_anova_1.html#1). 
+
+**For all analyses - check assumptions!**
+
+### You and your classmates measured mussel shell sizes at 3 beaches. You were particularly interested in these three beaches, and whether or not they differ. Conduct an analysis to answer your question. 
+
+```{r, echo = TRUE, eval = FALSE}
+# Set the web address where R will look for files from this repository
+repo_url <- "https://raw.githubusercontent.com/elahi/xdp/master/data/"
+dat <- read.csv(paste(repo_url, "class_data_mussels.csv", sep = ""))
+```
+
+  - Subset the data (`dat`) to make sure that sample sizes are equal for each site (hint: select data from two investigators at Site2 only)
+  - Is this a fixed or random effects analysis? Why?
+  - Interpret the results of your ANOVA. Calculate $R^2$. 
+  - Conduct planned or unplanned comparisons as relevant. 
+  - Plot your results (site means with uncertainty intervals)
+  - Interpret your analysis and draw conclusions. 
+
+### You and your classmates measured mussel shell sizes at 3 beaches. You wish to use these data to understand how much variation there is within and among the samples collected by different individuals. 
+
+  - Subset the data (`dat`) to best answer your question. Be careful about any confounding variables. 
+  - Is this a fixed or random effects analysis? Why?
+  - Interpret the results of your ANOVA. Calculate variance components and the repeatability of measurements. 
+  - Conduct planned or unplanned comparisons as relevant. 
+  - Plot your results. You decide the best way, considering the question. 
+  - Interpret your analysis and draw conclusions. 
+  
+### Complete problems **8, 12, and 15** from Whitlock and Schluter, Chapter 15 practice problems (pages 489-492). 
+
+*Prepared by R Elahi*

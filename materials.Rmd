@@ -129,4 +129,4 @@ The first assignment is [here](oiLabs-elahi/intro_to_r/intro_to_r.pdf). I sugges
 ### Wednesday
 
 - More ANOVA: [slides](slides/slides_anova_1.html)
-
+- The sixth assignment is [here](oiLabs-elahi/anova/anova_lab.html), and due next Wednesday. 
