@@ -140,4 +140,6 @@ The first assignment is [here](oiLabs-elahi/intro_to_r/intro_to_r.pdf). I sugges
 
 ### Wednesday
 
+- Regression [slides](slides/slides_regression.html)  
+- Simulating regression [R script](primers/regression_simulation.R)  
 - The eighth assignment is [here](oiLabs-elahi/simple_regression/simple_regression.html), and due next Wednesday. 
