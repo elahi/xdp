@@ -143,3 +143,25 @@ The first assignment is [here](oiLabs-elahi/intro_to_r/intro_to_r.pdf). I sugges
 - Regression [slides](slides/slides_regression.html)  
 - Simulating regression [R script](primers/regression_simulation.R)  
 - The eighth assignment is [here](oiLabs-elahi/simple_regression/simple_regression.html), and due next Wednesday. 
+
+## Week 9
+
+### Wednesday
+
+- Quiz 8 is on Canvas (closes at 1pm)  
+- Linear models [slides](slides/slides_linear_models.html)  
+
+## Week 10
+
+### Monday
+
+- Randomized complete block ANOVA [slides](slides/slides_anova_2.html)  
+- Nested ANOVA [slides](slides/slides_anova_3.html) 
+
+### Wednesday
+
+- Factorial ANOVA [slides](slides/slides_anova_4.html)  
+- Analysis of covariance [slides](slides/slides_anova_5.html)  
+- Pick up take-home final, due 5pm on 10 June
+
+
