@@ -70,7 +70,7 @@ The others will be online resources for learning the basics of data science usin
 | 7    | Analysis of variance      |
 | 8    | Regression       |
 | 9    | General linear models, multiple predictors     |
-| 10   | Blocked designs      |
+| 10   | Two-way ANOVA: blocked, nested, crossed      |
 
 Details on assignments and readings are on the [materials](https://elahi.github.io/xdp/materials) page. 
 
