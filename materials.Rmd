@@ -124,7 +124,7 @@ The first assignment is [here](oiLabs-elahi/intro_to_r/intro_to_r.pdf). I sugges
 ### Monday
 
 - Quiz 6
-- Intro to ANOVA
+- Intro to ANOVA[primer](primers/primer_anova_1.pdf)
 
 ### Wednesday
 
@@ -156,12 +156,11 @@ The first assignment is [here](oiLabs-elahi/intro_to_r/intro_to_r.pdf). I sugges
 ### Monday
 
 - Randomized complete block ANOVA [slides](slides/slides_anova_2.html)  
-- Nested ANOVA [slides](slides/slides_anova_3.html) 
+- Nested ANOVA [primer](primers/primer_anova_nested.pdf) 
 
 ### Wednesday
 
-- Factorial ANOVA [slides](slides/slides_anova_4.html)  
-- Analysis of covariance [slides](slides/slides_anova_5.html)  
+- Factorial ANOVA [slides](slides/slides_anova_factorial.html)  
 - Pick up take-home final, due 5pm on 10 June
 
 
