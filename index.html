@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="Spring 2019" />
+<meta name="author" content="Spring 2020" />
 
 
 <title>Experimental design and probability</title>
@@ -96,7 +96,6 @@ code {
 }
 img {
   max-width:100%;
-  height: auto;
 }
 .tabbed-pane {
   padding-top: 12px;
@@ -245,6 +244,7 @@ $(document).ready(function () {
   border: none;
   display: inline-block;
   border-radius: 4px;
+  background-color: transparent;
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li {
@@ -257,48 +257,9 @@ $(document).ready(function () {
 }
 </style>
 
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
-  });
-});
-</script>
-
 <!-- code folding -->
 
 
-
-<script>
-$(document).ready(function ()  {
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = true;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
-</script>
 
 <style type="text/css">
 
@@ -312,6 +273,12 @@ $(document).ready(function ()  {
 }
 }
 
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
 
 .toc-content {
   padding-left: 30px;
@@ -347,8 +314,6 @@ div.tocify {
 
 .tocify-subheader .tocify-item {
   font-size: 0.90em;
-  padding-left: 25px;
-  text-indent: 0;
 }
 
 .tocify .list-group-item {
@@ -409,7 +374,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Experimental design and probability</h1>
 <h3 class="subtitle">Stanford University, Hopkins Marine Station</h3>
-<h4 class="author">Spring 2019</h4>
+<h4 class="author">Spring 2020</h4>
 
 </div>
 
@@ -418,30 +383,31 @@ div.tocify {
 <h2>Syllabus</h2>
 <p><strong>Course description</strong><br />
 Variability is an integral part of biology. Introduction to probability and its use in designing experiments to address biological problems. Focus is on experimental design and the use of linear models in testing hypotheses (e.g., analysis of variance, regression). Students will use R to explore and analyze locally relevant biological datasets. No programming or statistical background is assumed. Prerequisite: consent of instructor.</p>
-<p>We will meet for 1.5 hours, twice a week. Classroom activities will be a mix of lecture, discussion, and collaborative problem solving. <strong>Please bring your laptop to all classroom sessions.</strong> Prior to class, students will complete a quiz which will be based on an assigned reading or video. All participants in the course will abide by the Code of Conduct, described below.</p>
+<p>We will meet for 1 hour, three times a week. Classroom activities will be a mix of lecture, discussion, and collaborative problem solving. <strong>Please bring your laptop to all classroom sessions.</strong> All participants in the course will abide by the Code of Conduct, described below.</p>
 <p><strong>Instructor</strong><br />
 Robin Elahi<br />
 - Office: Dive locker (Boatworks) - Office hours: Drop in, or by appointment via email</p>
 <p><strong>Teaching assistant</strong><br />
-Nicole Moyen<br />
-- Office: Denny Lab (Fisher)<br />
-- Office hours: 12-2pm, Tuesday</p>
+Maurice Goodman<br />
+- Office: De Leo Lab (Fisher)<br />
+- Office hours: TBD</p>
 <p><strong>E-communication</strong><br />
 You can email us at:<br />
 elahi at stanford<br />
-nmoyen at stanford<br />
+goodman3 at stanford<br />
 Please use your Stanford email for all correspondence.</p>
 <p><strong>Course website:</strong><br />
-<a href="https://elahi.github.io/xdp" class="uri">https://elahi.github.io/xdp</a><br />
+<a href="https://elahi.github.io/xdp">https://elahi.github.io/xdp</a><br />
 This course website runs from a repository on GitHub. You can view this repository here:<br />
-<a href="https://github.com/elahi/xdp" class="uri">https://github.com/elahi/xdp</a><br />
+<a href="https://github.com/elahi/xdp">https://github.com/elahi/xdp</a><br />
 Throughout the quarter, I will update the repository and website to reflect our progress. Please keep checking back to stay up to date.</p>
 <p><strong>Times and Rooms:</strong><br />
-2:30-4pm; Mondays &amp; Wednesdays; Fisher classroom</p>
+Weeks 1-3, 7-10: M, 4-5pm; W &amp; F, 8:30-9:30<br />
+Weeks 4-6: M, W, F: 8:30-9:30<br />
+Agassiz 11</p>
 <p><strong>Textbook</strong></p>
-<p>We will use a variety of resources in this course. The primary one is:</p>
-<p><a href="https://www.openintro.org/stat/">Open intro statistics, 3rd edition</a> - freely available as a pdf (or get a print copy for ~$15).</p>
-<p>The others will be online resources for learning the basics of data science using <code>R</code>.</p>
+<p>The primary text is:</p>
+<p><a href="https://www.openintro.org/stat/">Open intro statistics, 4th edition</a> - freely available as a pdf (or get a print copy for ~$20).</p>
 </div>
 <div id="schedule" class="section level2">
 <h2>Schedule</h2>
@@ -455,23 +421,23 @@ Throughout the quarter, I will update the repository and website to reflect our 
 <tbody>
 <tr class="odd">
 <td>1</td>
-<td>Intro to course, data collection, and R</td>
+<td>Introduction to data and experimental design</td>
 </tr>
 <tr class="even">
 <td>2</td>
-<td>Numerical and categorical data, data viz</td>
+<td>Numerical and categorical data</td>
 </tr>
 <tr class="odd">
 <td>3</td>
-<td>Intro to probability</td>
+<td>Introduction to probability</td>
 </tr>
 <tr class="even">
 <td>4</td>
-<td>Normal distribution, intro to inference</td>
+<td>Normal distribution</td>
 </tr>
 <tr class="odd">
 <td>5</td>
-<td>Hypothesis testing</td>
+<td>Foundations for inference</td>
 </tr>
 <tr class="even">
 <td>6</td>
@@ -483,15 +449,15 @@ Throughout the quarter, I will update the repository and website to reflect our 
 </tr>
 <tr class="even">
 <td>8</td>
-<td>Regression</td>
+<td>Regression, linear models</td>
 </tr>
 <tr class="odd">
 <td>9</td>
-<td>General linear models, multiple predictors</td>
+<td>Blocked and nested designs</td>
 </tr>
 <tr class="even">
 <td>10</td>
-<td>Two-way ANOVA: blocked, nested, crossed</td>
+<td>Factorial designs</td>
 </tr>
 </tbody>
 </table>
@@ -515,9 +481,11 @@ Throughout the quarter, I will update the repository and website to reflect our 
 <h2>Evaluation and grading</h2>
 <p>Here is a breakdown of graded tasks:</p>
 <ul>
-<li>Quizzes (40%)</li>
-<li>Labs (40%)</li>
-<li>Final exam (20%)</li>
+<li>Labs (10%)</li>
+<li>Homework (10%)</li>
+<li>Midterm 1 (20%)</li>
+<li>Midterm 2 (20%)</li>
+<li>Final exam (30%)</li>
 </ul>
 <p>Late submissions will not be accepted, but the lowest graded quiz and lab will be dropped.</p>
 </div>
@@ -541,7 +509,7 @@ Throughout the quarter, I will update the repository and website to reflect our 
 <p><strong>Students with Documented Disabilities</strong></p>
 <p>Students who may need an academic accommodation based on the impact of a disability must initiate the request with the Office of Accessible Education (OAE). Professional staff will evaluate the request with required documentation, recommend reasonable accommodations, and prepare an Accommodation Letter for faculty dated in the current quarter in which the request is being made. Students should contact the OAE as soon as possible since timely notice is needed to coordinate accommodations. The OAE is located at 563 Salvatierra Walk (phone: 723-1066, URL: <a href="http://studentaffairs.stanford.edu/oae" class="uri">http://studentaffairs.stanford.edu/oae</a>).</p>
 <p><strong>Affordability of Course Materials</strong></p>
-<p>Stanford University and its instructors are committed to ensuring that all courses are financially accessible to all students. If you are an undergraduate who needs assistance with the cost of course textbooks, supplies, materials and/or fees, you are welcome to approach me directly. If would prefer not to approach me directly, please note that you can ask the Diversity &amp; First-Gen Office for assistance by completing their questionnaire on course textbooks &amp; supplies: <a href="http://tinyurl.com/jpqbarn" class="uri">http://tinyurl.com/jpqbarn</a> or by contacting Joseph Brown, the Associate Director of the Diversity and First-Gen Office (<a href="mailto:jlbrown@stanford.edu">jlbrown@stanford.edu</a>; Old Union Room 207). Dr. Brown is available to connect you with resources and support while ensuring your privacy.</p>
+<p>Stanford University and its instructors are committed to ensuring that all courses are financially accessible to all students. If you are an undergraduate who needs assistance with the cost of course textbooks, supplies, materials and/or fees, you are welcome to approach me directly. If would prefer not to approach me directly, please note that you can ask the Diversity &amp; First-Gen Office for assistance by completing their questionnaire on course textbooks &amp; supplies: <a href="http://tinyurl.com/jpqbarn" class="uri">http://tinyurl.com/jpqbarn</a> or by contacting Joseph Brown, the Associate Director of the Diversity and First-Gen Office (<a href="mailto:jlbrown@stanford.edu" class="email">jlbrown@stanford.edu</a>; Old Union Room 207). Dr. Brown is available to connect you with resources and support while ensuring your privacy.</p>
 <p><strong>Roles and Responsibilities</strong></p>
 <p><em>Student</em>: inform the instructor no later than the first week of the quarter of any accommodation(s) you will or may potentially require.<br />
 <em>Instructors</em>: maintain strict confidentiality of any student’s disability and accommodations; help all students meet the learning objectives of this course.</p>
@@ -595,6 +563,49 @@ $(document).ready(function () {
 });
 
 
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
 </script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
