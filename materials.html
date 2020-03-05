@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
 
 <meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
-<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 
@@ -95,6 +95,7 @@ code {
 }
 img {
   max-width:100%;
+  height: auto;
 }
 .tabbed-pane {
   padding-top: 12px;
@@ -243,7 +244,6 @@ $(document).ready(function () {
   border: none;
   display: inline-block;
   border-radius: 4px;
-  background-color: transparent;
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li {
@@ -256,9 +256,48 @@ $(document).ready(function () {
 }
 </style>
 
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
 <!-- code folding -->
 
 
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <style type="text/css">
 
@@ -272,12 +311,6 @@ $(document).ready(function () {
 }
 }
 
-@media print {
-.toc-content {
-  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
-  float: right;
-}
-}
 
 .toc-content {
   padding-left: 30px;
@@ -313,6 +346,8 @@ div.tocify {
 
 .tocify-subheader .tocify-item {
   font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
 }
 
 .tocify .list-group-item {
@@ -377,208 +412,103 @@ div.tocify {
 
 
 <p><a href="https://docs.google.com/spreadsheets/d/1mXiC1klEjeeztOCGuBMXr5mjLeA2r6amJt77Yglg2M4/edit?usp=sharing">Detailed course schedule</a></p>
-<p><strong>os3</strong> refers to the Open Intro stats book. Supplemental readings are described below.</p>
+<p><strong>os4</strong> refers to the Open Intro stats book. Supplemental readings are described below.</p>
 <div id="before-class" class="section level2">
 <h2>Before Class</h2>
 <div id="r-and-rstudio" class="section level3">
 <h3><code>R</code> and <code>RStudio</code></h3>
-<p>Before the first class please read through the <a href="https://elahi.github.io/00-setup-R.html">computer setup instructions</a> that walk you through how to set up your computer to run R and Rstudio. Even if you have these programs already installed, make sure to check that you are running the latest versions of R and RStudio (which the instructions will tell you how to do).</p>
+<p>Before the first class please read through the <a href="https://elahi.github.io/00-setup-R.html">computer setup instructions</a> that walk you through how to set up your computer to run R and RStudio. Even if you have these programs already installed, make sure to check that you are running the latest versions of R and RStudio (which the instructions will tell you how to do).</p>
 </div>
 </div>
 <div id="week-1" class="section level2">
 <h2>Week 1</h2>
-<div id="monday" class="section level3">
-<h3>Monday</h3>
-<ul>
-<li><a href="slides/course_intro.pdf">Introduction to course</a></li>
-<li><a href="slides/data_collection.pdf">Data collection</a></li>
-<li><a href="https://docs.google.com/spreadsheets/d/1Dh0-o0Ot6VsAXBCFV4VzEOrx538wM92Va2DjYhPoLA0/edit#gid=0">Mussel measurements</a></li>
-</ul>
-<p><em>Prep for Wednesday</em><br />
-Install R and Rstudio on your computer (if you haven’t already!), and read the following website:<br />
-<a href="https://datacarpentry.org/R-ecology-lesson/00-before-we-start.html" class="uri">https://datacarpentry.org/R-ecology-lesson/00-before-we-start.html</a></p>
-<p>When you get to the part about the working directory - create a new folder on your desktop called <code>biohopk-174</code>. We will work from within this folder on Wednesday. In this folder, create an Rstudio project (<code>biohopk-174.Rproj</code>), as well as the following folders:</p>
-<ul>
-<li>data</li>
-<li>data_output</li>
-<li>docs</li>
-<li>figs</li>
-<li>scripts</li>
-</ul>
-<p><em>If you are having trouble installing RStudio please seek help from Robin or Nicole</em></p>
-</div>
-<div id="wednesday" class="section level3">
-<h3>Wednesday</h3>
-<p><a href="https://datacarpentry.org/R-ecology-lesson/01-intro-to-r.html">Intro to R and Rstudio</a></p>
-<p>The first assignment is <a href="oiLabs-elahi/intro_to_r/intro_to_r.pdf">here</a>. I suggest that you work through the material first in a plain R script (file name ends with <code>.R</code>). Once you are comfortable with the basics of plotting from vectors within a dataframe, then write up the answers to the questions in an <code>.Rmd</code> file. A tutorial on using .Rmd files is <a href="https://elahi.github.io/01-B-Rmarkdown-intro.html">here</a>, and we’ll get some practice using <code>.Rmd</code> files next Monday.</p>
-</div>
-</div>
-<div id="week-2" class="section level2">
-<h2>Week 2</h2>
-<div id="monday-1" class="section level3">
-<h3>Monday</h3>
-<ul>
-<li>Quiz 1</li>
-<li>Finish up data collection</li>
-<li>Examining numerical and categorical data; data viz</li>
-</ul>
-</div>
-<div id="wednesday-1" class="section level3">
-<h3>Wednesday</h3>
-<ul>
-<li>Examining numerical and categorical data; data viz</li>
-<li>In advance of class, please read and work through:
-<ul>
-<li><a href="https://r4ds.had.co.nz/data-visualisation.html" class="uri">https://r4ds.had.co.nz/data-visualisation.html</a></li>
-</ul></li>
-<li>The second assignment is <a href="oiLabs-elahi/intro_to_data/intro_to_data.pdf">here</a>, and due in one week.</li>
-</ul>
-</div>
-</div>
-<div id="week-3" class="section level2">
-<h2>Week 3</h2>
-<div id="monday-2" class="section level3">
-<h3>Monday</h3>
-<ul>
-<li>Quiz 2</li>
-<li>Introduction to probability</li>
-</ul>
-</div>
-<div id="wednesday-2" class="section level3">
-<h3>Wednesday</h3>
-<ul>
-<li>Conditional probability, Bayes theorem, and Bayesian inference</li>
-<li>The third assignment is <a href="oiLabs-elahi/probability/probability.html">here</a>, and due in one week.
-<ul>
-<li>Note that I’ve added some tips on how to format your Rmd file so that the resulting word document is easy to read:</li>
-<li><a href="https://raw.githubusercontent.com/elahi/xdp/master/oiLabs-elahi/rmd_hw_tips/rmd_hw_tips.Rmd" class="uri">https://raw.githubusercontent.com/elahi/xdp/master/oiLabs-elahi/rmd_hw_tips/rmd_hw_tips.Rmd</a></li>
-<li>You can see the rendered word file <a href="oiLabs-elahi/rmd_hw_tips/rmd_hw_tips.docx">here</a></li>
-<li>As further examples, I’ve posted the .Rmd file and the corresponding word output for the first assignment (birth_records_xxx) in the github repository <a href="https://github.com/elahi/xdp/tree/master/oiLabs-elahi/intro_to_r">here</a></li>
-</ul></li>
-</ul>
-</div>
-</div>
-<div id="week-4" class="section level2">
-<h2>Week 4</h2>
-<div id="monday-3" class="section level3">
-<h3>Monday</h3>
-<ul>
-<li>Quiz 3</li>
-<li>The normal distribution</li>
-<li>Practice with the normal distribution in R <a href="oiLabs-elahi/normal_distribution/normal_distribution.html">here</a></li>
-</ul>
-</div>
-<div id="wednesday-3" class="section level3">
-<h3>Wednesday</h3>
-<ul>
-<li>Probability distributions, sampling distributions and the central limit theorem</li>
-<li>The fourth assignment is <a href="oiLabs-elahi/sampling_distributions/sampling_distributions.html">here</a>, and due in one week.</li>
-</ul>
-</div>
-</div>
-<div id="week-5" class="section level2">
-<h2>Week 5</h2>
-<div id="monday-4" class="section level3">
-<h3>Monday</h3>
-<ul>
-<li>Quiz 4</li>
-<li><a href="primers/primer_displaying_uncertainty.pdf">Displaying uncertainty in figures</a></li>
-<li><a href="oiLabs-elahi/confidence_intervals/confidence_intervals.html">Practice with confidence intervals</a></li>
-</ul>
-</div>
-<div id="wednesday-4" class="section level3">
-<h3>Wednesday</h3>
-<ul>
-<li>Hypothesis testing</li>
-<li>Paper discussion, <a href="https://www.nature.com/articles/d41586-019-00857-9">Amrhein et al. 2019</a> (paper is on google team drive)</li>
-<li>The fifth assignment is <a href="oiLabs-elahi/inf_for_numerical_data/inf_for_numerical_data.html">here</a>, and due in one week.</li>
-</ul>
-</div>
-</div>
-<div id="week-6" class="section level2">
-<h2>Week 6</h2>
-<div id="monday-5" class="section level3">
-<h3>Monday</h3>
-<ul>
-<li>Quiz 5</li>
-<li>T-tests</li>
-</ul>
-</div>
-<div id="wednesday-5" class="section level3">
-<h3>Wednesday</h3>
-<ul>
-<li>Type 1 and 2 errors; power analysis</li>
-<li>The sixth assignment is <a href="oiLabs-elahi/inf_for_numerical_data_2/inf_for_numerical_data_2.html">here</a>, and due in one week.</li>
-</ul>
-</div>
-</div>
-<div id="week-7" class="section level2">
-<h2>Week 7</h2>
-<div id="monday-6" class="section level3">
-<h3>Monday</h3>
-<ul>
-<li>Quiz 6</li>
-<li>Intro to ANOVA<a href="primers/primer_anova_1.pdf">primer</a></li>
-</ul>
-</div>
-<div id="wednesday-6" class="section level3">
-<h3>Wednesday</h3>
-<ul>
-<li>More ANOVA: <a href="slides/slides_anova_1.html">slides</a></li>
-<li>The seventh assignment is <a href="oiLabs-elahi/anova/anova_lab.html">here</a>, and due next Wednesday.</li>
-</ul>
-</div>
-</div>
-<div id="week-8" class="section level2">
-<h2>Week 8</h2>
-<div id="monday-7" class="section level3">
-<h3>Monday</h3>
-<ul>
-<li>Quiz 7<br />
-</li>
-<li>Intro to regression</li>
-</ul>
-</div>
-<div id="wednesday-7" class="section level3">
-<h3>Wednesday</h3>
-<ul>
-<li>Regression <a href="slides/slides_regression.html">slides</a><br />
-</li>
-<li>Simulating regression <a href="primers/regression_simulation.R">R script</a><br />
-</li>
-<li>The eighth assignment is <a href="oiLabs-elahi/simple_regression/simple_regression.html">here</a>, and due next Wednesday.</li>
-</ul>
-</div>
-</div>
-<div id="week-9" class="section level2">
-<h2>Week 9</h2>
-<div id="wednesday-8" class="section level3">
-<h3>Wednesday</h3>
-<ul>
-<li>Quiz 8 is on Canvas (closes at 1pm)<br />
-</li>
-<li>Linear models <a href="slides/slides_linear_models.html">slides</a></li>
-</ul>
-</div>
-</div>
-<div id="week-10" class="section level2">
-<h2>Week 10</h2>
-<div id="monday-8" class="section level3">
-<h3>Monday</h3>
-<ul>
-<li>Randomized complete block ANOVA <a href="slides/slides_anova_2.html">slides</a><br />
-</li>
-<li>Nested ANOVA <a href="primers/primer_anova_nested.pdf">primer</a></li>
-</ul>
-</div>
-<div id="wednesday-9" class="section level3">
-<h3>Wednesday</h3>
-<ul>
-<li>Factorial ANOVA <a href="slides/slides_anova_factorial.html">slides</a><br />
-</li>
-<li>Pick up take-home final, due 5pm on 10 June</li>
-</ul>
-</div>
+<!-- - [Introduction to course](slides/course_intro.pdf)  -->
+<!-- - [Data collection](slides/data_collection.pdf) -->
+<!-- - [Mussel measurements](https://docs.google.com/spreadsheets/d/1Dh0-o0Ot6VsAXBCFV4VzEOrx538wM92Va2DjYhPoLA0/edit#gid=0) -->
+<!-- *Prep for Wednesday*   -->
+<!-- Install R and Rstudio on your computer (if you haven't already!), and read the following website:   -->
+<!-- https://datacarpentry.org/R-ecology-lesson/00-before-we-start.html -->
+<!-- When you get to the part about the working directory - create a new folder on your desktop called `biohopk-174`.  We will work from within this folder on Wednesday. In this folder, create an Rstudio project (`biohopk-174.Rproj`), as well as the following folders: -->
+<!--   - data -->
+<!--   - data_output -->
+<!--   - docs -->
+<!--   - figs -->
+<!--   - scripts -->
+<!-- *If you are having trouble installing RStudio please seek help from Robin or Nicole* -->
+<!-- ### Wednesday -->
+<!-- [Intro to R and Rstudio](https://datacarpentry.org/R-ecology-lesson/01-intro-to-r.html) -->
+<!-- The first assignment is [here](oiLabs-elahi/intro_to_r/intro_to_r.pdf). I suggest that you work through the material first in a plain R script (file name ends with `.R`). Once you are comfortable with the basics of plotting from vectors within a dataframe, then write up the answers to the questions in an `.Rmd` file. A tutorial on using .Rmd files is [here](https://elahi.github.io/01-B-Rmarkdown-intro.html), and we'll get some practice using `.Rmd` files next Monday.  -->
+<!-- ## Week 2 -->
+<!-- ### Monday -->
+<!-- - Quiz 1 -->
+<!-- - Finish up data collection -->
+<!-- - Examining numerical and categorical data; data viz -->
+<!-- ### Wednesday -->
+<!-- - Examining numerical and categorical data; data viz -->
+<!-- - In advance of class, please read and work through: -->
+<!--     - https://r4ds.had.co.nz/data-visualisation.html -->
+<!-- - The second assignment is [here](oiLabs-elahi/intro_to_data/intro_to_data.pdf), and due in one week.  -->
+<!-- ## Week 3 -->
+<!-- ### Monday -->
+<!-- - Quiz 2 -->
+<!-- - Introduction to probability -->
+<!-- ### Wednesday -->
+<!-- - Conditional probability, Bayes theorem, and Bayesian inference -->
+<!-- - The third assignment is [here](oiLabs-elahi/probability/probability.html), and due in one week.  -->
+<!--     - Note that I've added some tips on how to format your Rmd file so that the resulting word document is easy to read: -->
+<!--     - https://raw.githubusercontent.com/elahi/xdp/master/oiLabs-elahi/rmd_hw_tips/rmd_hw_tips.Rmd -->
+<!--     - You can see the rendered word file [here](oiLabs-elahi/rmd_hw_tips/rmd_hw_tips.docx) -->
+<!--     - As further examples, I've posted the .Rmd file and the corresponding word output for the first assignment (birth_records_xxx) in the github repository [here](https://github.com/elahi/xdp/tree/master/oiLabs-elahi/intro_to_r) -->
+<!-- ## Week 4 -->
+<!-- ### Monday -->
+<!-- - Quiz 3 -->
+<!-- - The normal distribution -->
+<!-- - Practice with the normal distribution in R [here](oiLabs-elahi/normal_distribution/normal_distribution.html) -->
+<!-- ### Wednesday -->
+<!-- - Probability distributions, sampling distributions and the central limit theorem -->
+<!-- - The fourth assignment is [here](oiLabs-elahi/sampling_distributions/sampling_distributions.html), and due in one week.  -->
+<!-- ## Week 5 -->
+<!-- ### Monday -->
+<!-- - Quiz 4 -->
+<!-- - [Displaying uncertainty in figures](primers/primer_displaying_uncertainty.pdf) -->
+<!-- - [Practice with confidence intervals](oiLabs-elahi/confidence_intervals/confidence_intervals.html) -->
+<!-- ### Wednesday -->
+<!-- - Hypothesis testing -->
+<!-- - Paper discussion, [Amrhein et al. 2019](https://www.nature.com/articles/d41586-019-00857-9) (paper is on google team drive) -->
+<!-- - The fifth assignment is [here](oiLabs-elahi/inf_for_numerical_data/inf_for_numerical_data.html), and due in one week.  -->
+<!-- ## Week 6 -->
+<!-- ### Monday -->
+<!-- - Quiz 5 -->
+<!-- - T-tests -->
+<!-- ### Wednesday -->
+<!-- - Type 1 and 2 errors; power analysis -->
+<!-- - The sixth assignment is [here](oiLabs-elahi/inf_for_numerical_data_2/inf_for_numerical_data_2.html), and due in one week.  -->
+<!-- ## Week 7 -->
+<!-- ### Monday -->
+<!-- - Quiz 6 -->
+<!-- - Intro to ANOVA[primer](primers/primer_anova_1.pdf) -->
+<!-- ### Wednesday -->
+<!-- - More ANOVA: [slides](slides/slides_anova_1.html) -->
+<!-- - The seventh assignment is [here](oiLabs-elahi/anova/anova_lab.html), and due next Wednesday.  -->
+<!-- ## Week 8 -->
+<!-- ### Monday -->
+<!-- - Quiz 7   -->
+<!-- - Intro to regression -->
+<!-- ### Wednesday -->
+<!-- - Regression [slides](slides/slides_regression.html)   -->
+<!-- - Simulating regression [R script](primers/regression_simulation.R)   -->
+<!-- - The eighth assignment is [here](oiLabs-elahi/simple_regression/simple_regression.html), and due next Wednesday.  -->
+<!-- ## Week 9 -->
+<!-- ### Wednesday -->
+<!-- - Quiz 8 is on Canvas (closes at 1pm)   -->
+<!-- - Linear models [slides](slides/slides_linear_models.html)   -->
+<!-- ## Week 10 -->
+<!-- ### Monday -->
+<!-- - Randomized complete block ANOVA [slides](slides/slides_anova_2.html)   -->
+<!-- - Nested ANOVA [primer](primers/primer_anova_nested.pdf)  -->
+<!-- ### Wednesday -->
+<!-- - Factorial ANOVA [slides](slides/slides_anova_factorial.html)   -->
+<!-- - Pick up take-home final, due 5pm on 10 June -->
 </div>
 
 
@@ -599,49 +529,6 @@ $(document).ready(function () {
 });
 
 
-</script>
-
-<!-- tabsets -->
-
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
-  });
-});
-</script>
-
-<!-- code folding -->
-
-<script>
-$(document).ready(function ()  {
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = true;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
 </script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->

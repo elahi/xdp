@@ -3,14 +3,14 @@ title: "Experimental design and probability"
 author: "Spring 2020"
 subtitle: Stanford University, Hopkins Marine Station
 output:
-  pdf_document:
-    toc: yes
-    toc_depth: '2'
   html_document:
     theme: cosmo
     toc: yes
     toc_depth: 2
     toc_float: yes
+  pdf_document:
+    toc: no
+    toc_depth: '2'
 ---
 
 ```{r setup, include=FALSE}
@@ -55,7 +55,7 @@ Agassiz 11
 
 The primary text is:
 
-[Open intro statistics, 4th edition](https://www.openintro.org/stat/) - freely available as a pdf (or get a print copy for ~$20). 
+[Open Intro Statistics, 4th edition](https://www.openintro.org/stat/) - freely available as a pdf (or get a print copy for ~$20). 
 
 ## Schedule
 
@@ -104,11 +104,9 @@ Here is a breakdown of graded tasks:
   - Midterm 2 (20%)
   - Final exam (30%)
 
-Late submissions will not be accepted, but the lowest graded quiz and lab will be dropped. 
-
 ## Tips for success
 
-- Complete the readings before class, to prime you for class lessons (not to mention the quizzes). Then go over the readings again, after class. 
+- Complete the readings before class, to prime you for class lessons. Then go over the readings again, after class. 
 
 - Be an active participant during lectures and labs.
 
@@ -120,7 +118,7 @@ Late submissions will not be accepted, but the lowest graded quiz and lab will b
 
 We may change the activities schedule or meeting location. You will be notified of any changes.
 
-Use of your personal computer for in-class exercises, such as data analysis and literature searches, is highly recommended. Please let us know if you do not have a computer so we may make classroom arrangements.
+Use of your personal computer for in-class exercises is highly recommended. Please let us know if you do not have a computer so we may make classroom arrangements.
 
 **Plagiarism, Dishonesty, and Academic Misconduct**
 
@@ -134,17 +132,14 @@ Plagiarism, cheating, and other misconduct, including bullying, discrimination, 
 
 Students who may need an academic accommodation based on the impact of a disability must initiate the request with the Office of Accessible Education (OAE).  Professional staff will evaluate the request with required documentation, recommend reasonable accommodations, and prepare an Accommodation Letter for faculty dated in the current quarter in which the request is being made. Students should contact the OAE as soon as possible since timely notice is needed to coordinate accommodations.  The OAE is located at 563 Salvatierra Walk (phone: 723-1066, URL: http://studentaffairs.stanford.edu/oae).
 
-
 **Affordability of Course Materials**  
 
 Stanford University and its instructors are committed to ensuring that all courses are financially accessible to all students. If you are an undergraduate who needs assistance with the cost of course textbooks, supplies, materials and/or fees, you are welcome to approach me directly. If would prefer not to approach me directly, please note that you can ask the Diversity & First-Gen Office for assistance by completing their questionnaire on course textbooks & supplies: http://tinyurl.com/jpqbarn or by contacting Joseph Brown, the Associate Director of the Diversity and First-Gen Office (jlbrown@stanford.edu; Old Union Room 207). Dr. Brown is available to connect you with resources and support while ensuring your privacy.
-
 
 **Roles and Responsibilities**  
 
 *Student*: inform the instructor no later than the first week of the quarter of any accommodation(s) you will or may potentially require.  
 *Instructors*: maintain strict confidentiality of any student’s disability and accommodations; help all students meet the learning objectives of this course.
-
 
 ## Before Class 
 

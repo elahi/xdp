@@ -14,153 +14,151 @@ knitr::opts_chunk$set(echo = TRUE)
 
 [Detailed course schedule](https://docs.google.com/spreadsheets/d/1mXiC1klEjeeztOCGuBMXr5mjLeA2r6amJt77Yglg2M4/edit?usp=sharing)
 
-**os3** refers to the Open Intro stats book. Supplemental readings are described below. 
+**os4** refers to the Open Intro stats book. Supplemental readings are described below. 
 
 ## Before Class 
 
 ### `R` and `RStudio`
 
-Before the first class please read through the [computer setup instructions](https://elahi.github.io/00-setup-R.html) that walk you through how to set up your computer to run R and Rstudio. Even if you have these programs already installed, make sure to check that you are running the latest versions of R and RStudio (which the instructions will tell you how to do). 
+Before the first class please read through the [computer setup instructions](https://elahi.github.io/00-setup-R.html) that walk you through how to set up your computer to run R and RStudio. Even if you have these programs already installed, make sure to check that you are running the latest versions of R and RStudio (which the instructions will tell you how to do). 
 
 ## Week 1
 
-### Monday
+<!-- - [Introduction to course](slides/course_intro.pdf)  -->
+<!-- - [Data collection](slides/data_collection.pdf) -->
+<!-- - [Mussel measurements](https://docs.google.com/spreadsheets/d/1Dh0-o0Ot6VsAXBCFV4VzEOrx538wM92Va2DjYhPoLA0/edit#gid=0) -->
 
-- [Introduction to course](slides/course_intro.pdf) 
-- [Data collection](slides/data_collection.pdf)
-- [Mussel measurements](https://docs.google.com/spreadsheets/d/1Dh0-o0Ot6VsAXBCFV4VzEOrx538wM92Va2DjYhPoLA0/edit#gid=0)
+<!-- *Prep for Wednesday*   -->
+<!-- Install R and Rstudio on your computer (if you haven't already!), and read the following website:   -->
+<!-- https://datacarpentry.org/R-ecology-lesson/00-before-we-start.html -->
 
-*Prep for Wednesday*  
-Install R and Rstudio on your computer (if you haven't already!), and read the following website:  
-https://datacarpentry.org/R-ecology-lesson/00-before-we-start.html
+<!-- When you get to the part about the working directory - create a new folder on your desktop called `biohopk-174`.  We will work from within this folder on Wednesday. In this folder, create an Rstudio project (`biohopk-174.Rproj`), as well as the following folders: -->
 
-When you get to the part about the working directory - create a new folder on your desktop called `biohopk-174`.  We will work from within this folder on Wednesday. In this folder, create an Rstudio project (`biohopk-174.Rproj`), as well as the following folders:
+<!--   - data -->
+<!--   - data_output -->
+<!--   - docs -->
+<!--   - figs -->
+<!--   - scripts -->
 
-  - data
-  - data_output
-  - docs
-  - figs
-  - scripts
-  
-*If you are having trouble installing RStudio please seek help from Robin or Nicole*
+<!-- *If you are having trouble installing RStudio please seek help from Robin or Nicole* -->
 
-### Wednesday
+<!-- ### Wednesday -->
 
-[Intro to R and Rstudio](https://datacarpentry.org/R-ecology-lesson/01-intro-to-r.html)
+<!-- [Intro to R and Rstudio](https://datacarpentry.org/R-ecology-lesson/01-intro-to-r.html) -->
 
-The first assignment is [here](oiLabs-elahi/intro_to_r/intro_to_r.pdf). I suggest that you work through the material first in a plain R script (file name ends with `.R`). Once you are comfortable with the basics of plotting from vectors within a dataframe, then write up the answers to the questions in an `.Rmd` file. A tutorial on using .Rmd files is [here](https://elahi.github.io/01-B-Rmarkdown-intro.html), and we'll get some practice using `.Rmd` files next Monday. 
+<!-- The first assignment is [here](oiLabs-elahi/intro_to_r/intro_to_r.pdf). I suggest that you work through the material first in a plain R script (file name ends with `.R`). Once you are comfortable with the basics of plotting from vectors within a dataframe, then write up the answers to the questions in an `.Rmd` file. A tutorial on using .Rmd files is [here](https://elahi.github.io/01-B-Rmarkdown-intro.html), and we'll get some practice using `.Rmd` files next Monday.  -->
 
-## Week 2
-### Monday
+<!-- ## Week 2 -->
+<!-- ### Monday -->
 
-- Quiz 1
-- Finish up data collection
-- Examining numerical and categorical data; data viz
+<!-- - Quiz 1 -->
+<!-- - Finish up data collection -->
+<!-- - Examining numerical and categorical data; data viz -->
 
-### Wednesday
+<!-- ### Wednesday -->
 
-- Examining numerical and categorical data; data viz
-- In advance of class, please read and work through:
-    - https://r4ds.had.co.nz/data-visualisation.html
+<!-- - Examining numerical and categorical data; data viz -->
+<!-- - In advance of class, please read and work through: -->
+<!--     - https://r4ds.had.co.nz/data-visualisation.html -->
 
-- The second assignment is [here](oiLabs-elahi/intro_to_data/intro_to_data.pdf), and due in one week. 
+<!-- - The second assignment is [here](oiLabs-elahi/intro_to_data/intro_to_data.pdf), and due in one week.  -->
 
-## Week 3
-### Monday
+<!-- ## Week 3 -->
+<!-- ### Monday -->
 
-- Quiz 2
-- Introduction to probability
+<!-- - Quiz 2 -->
+<!-- - Introduction to probability -->
 
-### Wednesday
+<!-- ### Wednesday -->
 
-- Conditional probability, Bayes theorem, and Bayesian inference
-- The third assignment is [here](oiLabs-elahi/probability/probability.html), and due in one week. 
-    - Note that I've added some tips on how to format your Rmd file so that the resulting word document is easy to read:
-    - https://raw.githubusercontent.com/elahi/xdp/master/oiLabs-elahi/rmd_hw_tips/rmd_hw_tips.Rmd
-    - You can see the rendered word file [here](oiLabs-elahi/rmd_hw_tips/rmd_hw_tips.docx)
-    - As further examples, I've posted the .Rmd file and the corresponding word output for the first assignment (birth_records_xxx) in the github repository [here](https://github.com/elahi/xdp/tree/master/oiLabs-elahi/intro_to_r)
+<!-- - Conditional probability, Bayes theorem, and Bayesian inference -->
+<!-- - The third assignment is [here](oiLabs-elahi/probability/probability.html), and due in one week.  -->
+<!--     - Note that I've added some tips on how to format your Rmd file so that the resulting word document is easy to read: -->
+<!--     - https://raw.githubusercontent.com/elahi/xdp/master/oiLabs-elahi/rmd_hw_tips/rmd_hw_tips.Rmd -->
+<!--     - You can see the rendered word file [here](oiLabs-elahi/rmd_hw_tips/rmd_hw_tips.docx) -->
+<!--     - As further examples, I've posted the .Rmd file and the corresponding word output for the first assignment (birth_records_xxx) in the github repository [here](https://github.com/elahi/xdp/tree/master/oiLabs-elahi/intro_to_r) -->
 
-## Week 4
+<!-- ## Week 4 -->
 
-### Monday
+<!-- ### Monday -->
 
-- Quiz 3
-- The normal distribution
-- Practice with the normal distribution in R [here](oiLabs-elahi/normal_distribution/normal_distribution.html)
+<!-- - Quiz 3 -->
+<!-- - The normal distribution -->
+<!-- - Practice with the normal distribution in R [here](oiLabs-elahi/normal_distribution/normal_distribution.html) -->
 
-### Wednesday
+<!-- ### Wednesday -->
 
-- Probability distributions, sampling distributions and the central limit theorem
-- The fourth assignment is [here](oiLabs-elahi/sampling_distributions/sampling_distributions.html), and due in one week. 
+<!-- - Probability distributions, sampling distributions and the central limit theorem -->
+<!-- - The fourth assignment is [here](oiLabs-elahi/sampling_distributions/sampling_distributions.html), and due in one week.  -->
 
-## Week 5
+<!-- ## Week 5 -->
 
-### Monday
+<!-- ### Monday -->
 
-- Quiz 4
-- [Displaying uncertainty in figures](primers/primer_displaying_uncertainty.pdf)
-- [Practice with confidence intervals](oiLabs-elahi/confidence_intervals/confidence_intervals.html)
+<!-- - Quiz 4 -->
+<!-- - [Displaying uncertainty in figures](primers/primer_displaying_uncertainty.pdf) -->
+<!-- - [Practice with confidence intervals](oiLabs-elahi/confidence_intervals/confidence_intervals.html) -->
 
-### Wednesday
+<!-- ### Wednesday -->
 
-- Hypothesis testing
-- Paper discussion, [Amrhein et al. 2019](https://www.nature.com/articles/d41586-019-00857-9) (paper is on google team drive)
-- The fifth assignment is [here](oiLabs-elahi/inf_for_numerical_data/inf_for_numerical_data.html), and due in one week. 
+<!-- - Hypothesis testing -->
+<!-- - Paper discussion, [Amrhein et al. 2019](https://www.nature.com/articles/d41586-019-00857-9) (paper is on google team drive) -->
+<!-- - The fifth assignment is [here](oiLabs-elahi/inf_for_numerical_data/inf_for_numerical_data.html), and due in one week.  -->
 
-## Week 6
+<!-- ## Week 6 -->
 
-### Monday
+<!-- ### Monday -->
 
-- Quiz 5
-- T-tests
+<!-- - Quiz 5 -->
+<!-- - T-tests -->
 
-### Wednesday
+<!-- ### Wednesday -->
 
-- Type 1 and 2 errors; power analysis
-- The sixth assignment is [here](oiLabs-elahi/inf_for_numerical_data_2/inf_for_numerical_data_2.html), and due in one week. 
+<!-- - Type 1 and 2 errors; power analysis -->
+<!-- - The sixth assignment is [here](oiLabs-elahi/inf_for_numerical_data_2/inf_for_numerical_data_2.html), and due in one week.  -->
 
-## Week 7
+<!-- ## Week 7 -->
 
-### Monday
+<!-- ### Monday -->
 
-- Quiz 6
-- Intro to ANOVA[primer](primers/primer_anova_1.pdf)
+<!-- - Quiz 6 -->
+<!-- - Intro to ANOVA[primer](primers/primer_anova_1.pdf) -->
 
-### Wednesday
+<!-- ### Wednesday -->
 
-- More ANOVA: [slides](slides/slides_anova_1.html)
-- The seventh assignment is [here](oiLabs-elahi/anova/anova_lab.html), and due next Wednesday. 
+<!-- - More ANOVA: [slides](slides/slides_anova_1.html) -->
+<!-- - The seventh assignment is [here](oiLabs-elahi/anova/anova_lab.html), and due next Wednesday.  -->
 
-## Week 8
+<!-- ## Week 8 -->
 
-### Monday
+<!-- ### Monday -->
 
-- Quiz 7  
-- Intro to regression
+<!-- - Quiz 7   -->
+<!-- - Intro to regression -->
 
-### Wednesday
+<!-- ### Wednesday -->
 
-- Regression [slides](slides/slides_regression.html)  
-- Simulating regression [R script](primers/regression_simulation.R)  
-- The eighth assignment is [here](oiLabs-elahi/simple_regression/simple_regression.html), and due next Wednesday. 
+<!-- - Regression [slides](slides/slides_regression.html)   -->
+<!-- - Simulating regression [R script](primers/regression_simulation.R)   -->
+<!-- - The eighth assignment is [here](oiLabs-elahi/simple_regression/simple_regression.html), and due next Wednesday.  -->
 
-## Week 9
+<!-- ## Week 9 -->
 
-### Wednesday
+<!-- ### Wednesday -->
 
-- Quiz 8 is on Canvas (closes at 1pm)  
-- Linear models [slides](slides/slides_linear_models.html)  
+<!-- - Quiz 8 is on Canvas (closes at 1pm)   -->
+<!-- - Linear models [slides](slides/slides_linear_models.html)   -->
 
-## Week 10
+<!-- ## Week 10 -->
 
-### Monday
+<!-- ### Monday -->
 
-- Randomized complete block ANOVA [slides](slides/slides_anova_2.html)  
-- Nested ANOVA [primer](primers/primer_anova_nested.pdf) 
+<!-- - Randomized complete block ANOVA [slides](slides/slides_anova_2.html)   -->
+<!-- - Nested ANOVA [primer](primers/primer_anova_nested.pdf)  -->
 
-### Wednesday
+<!-- ### Wednesday -->
 
-- Factorial ANOVA [slides](slides/slides_anova_factorial.html)  
-- Pick up take-home final, due 5pm on 10 June
+<!-- - Factorial ANOVA [slides](slides/slides_anova_factorial.html)   -->
+<!-- - Pick up take-home final, due 5pm on 10 June -->
 
 
