@@ -20,13 +20,13 @@ knitr::opts_chunk$set(echo = TRUE)
 ## Syllabus
 
 **Course description**  
-Variability is an integral part of biology. Introduction to probability and its use in designing experiments to address biological problems. Focus is on experimental design and the use of linear models in testing hypotheses (e.g., analysis of variance, regression). Students will use R to explore and analyze locally relevant biological datasets. No programming or statistical background is assumed. Prerequisite: consent of instructor.
+Variability is an integral part of biology. Introduction to probability and its use in designing experiments to address biological problems. Focus is on experimental design and the use of linear models in testing hypotheses (e.g., analysis of variance, regression). Students will use R to explore and analyze locally relevant biological datasets. No programming or statistical background is assumed. 
 
 We will meet for 1 hour, three times a week. Classroom activities will be a mix of lecture, discussion, and collaborative problem solving. **Please bring your laptop to all classroom sessions.** All participants in the course will abide by the Code of Conduct, described below. 
 
 **Instructor**  
 Robin Elahi  
-  - Office: Dive locker (Boatworks) 
+  - Office: Dive locker (Boatworks)  
   - Office hours: Drop in, or by appointment via email  
 
 **Teaching assistant**  
@@ -106,13 +106,13 @@ Here is a breakdown of graded tasks:
 
 ## Tips for success
 
-- Complete the readings before class, to prime you for class lessons. Then go over the readings again, after class. 
+- Read the text. Before class, after class, or both - repetition is key. 
 
-- Be an active participant during lectures and labs.
+- Be an active participant in class.
 
-- Ask questions - especially during class or office hours. Ask me, your TA, and your classmates.
+- Ask questions - of me, your TA, and your classmates.
 
-- Do not procrastinate - don’t let a week go by with unanswered questions as it will just make the following week’s material even more difficult to follow.
+- Do not procrastinate. Don’t let a week go by with unanswered questions as it will just make the following week’s material even more difficult to follow.
 
 ## Notes
 
