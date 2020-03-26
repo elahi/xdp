@@ -4,159 +4,251 @@ fontfamily: mathpazo
 fontsize: 10pt
 geometry: margin=0.75in
 output:
+  pdf_document:
+    toc: no
   html_document:
     css: ../lab.css
     highlight: pygments
     theme: cerulean
     toc: true
     toc_float: true
-  pdf_document:
-    toc: no
 layout: topic
 editor_options:
   chunk_output_type: console
 ---
 
 ```{r global_options, include=FALSE}
-knitr::opts_chunk$set(fig.width=5, fig.height=3.5, 
+knitr::opts_chunk$set(fig.width = 5, fig.height = 3.5, 
                       echo = TRUE, eval = TRUE, warning = FALSE, message = FALSE)
 library(tidyverse)
 ```
 
-## Getting started
+This is a brief tutorial on non-metric multidimensional scaling using the `vegan` package in `R`. I use data from an experiment that tested the effects of urchin grazing on the community structure of subtidal rock walls ([Elahi and Sebens 2012](https://doi.org/10.3354/meps09603)). 
 
 ### Load packages
 
-
-Let's load the packages.
-
 ```{r load-packages, message=FALSE, eval = TRUE}
-library(MASS)
 library(vegan)
-#library(labdsv)
 library(tidyverse)
-theme_set(theme_bw(base_size = 14))
+theme_set(theme_bw(base_size = 14) + 
+            theme(strip.background = element_blank(), 
+                  panel.grid = element_blank()))
 
 ## Define the repository from which we get the data
-repo_url <- "https://raw.githubusercontent.com/elahi/phd_elahi/master/northeast_pacific_wall_surveys/data/"
+repo_url <- "https://raw.githubusercontent.com/elahi/phd_elahi/master/"
+
 ```
 
-### The data
+### Load data
 
 ```{r load-data, eval = TRUE}
-dat <- read.csv(paste(repo_url, "sjc_sessile_130513_mds.csv", sep = ""))
-glimpse(dat)
+sjc_sessile <- read_csv(
+  paste(repo_url,
+        "Elahi_sessile_quadrat/output/sjc_master_compiled/sessile_compiled_final_wide.csv", 
+        sep = ""))
+dat <- sjc_sessile %>% 
+  filter(dataset == "elahi_urchin_addition") %>% 
+  select(-X1, -X)
+names(dat)[1:10]
+```
+
+### Explore data
+
+```{r explore-data}
+dat %>% 
+  count(site, urchin_addition, transect)
+  
+dat %>% count(dateR) 
+
+dat <- dat %>% filter(dateR == "2009-09-24")
+
+```
+
+### Examine percent cover of all sessile taxa and functional groups
+
+```{r}
+datL <- dat %>% 
+  gather(key = species, value = cover, bare_rock:rubble)
+
+cover_means <- datL %>%
+  group_by(species) %>% 
+  summarise(mean = mean(cover)) %>% 
+  arrange(mean)
+
+cover_means %>% 
+  ggplot(aes(mean)) + 
+  geom_histogram(binwidth = 0.01) 
+```
+
+### Remove uncommon sessile taxa
+
+Here, I use a 1% cover threshold. I do this for simplicity - not for biological relevance. 
+
+```{r}
+species_subset <- cover_means %>% filter(mean >= 0.01)
+species_subset
+```
+
+### Prepare data for ordination
+
+```{r prep-data}
+# create spp matrix 
+abun <- dat[, names(dat) %in% species_subset$species]
+
+# transform matrix
+abun_sq <- sqrt(abun)
+
+# presence/absence
+abun_pa <- decostand(abun, method="pa")
+
+# create group matrix
+dat_group <- dat[,1:8]
+```
+
+To illustrate the approach, I use the default settings in the function `metaMDS` to run the mds on proportional cover data (i.e., these data were not transformed). But later, I will run the mds on square-root transformed data, and presence/absence data. 
+
+```{r trial}
+## Rename the matrix
+mds_mat <- abun
+
+## Run nmds, using default settings
+mds_results <- metaMDS(mds_mat)
+
+# Using the scores function from vegan to extract the site scores and convert to a data.frame
+data_scores <- as.data.frame(scores(mds_results))  
+
+# Combining with group dataframe
+data_scores <- cbind(data_scores, dat_group)
+data_scores %>% head()
+
+# Using the scores function from vegan to extract the species scores and convert to a data.frame
+species_scores <- as.data.frame(scores(mds_results, "species"))  
+
+# Create a column of species, from the rownames of species.scores
+species_scores$species <- rownames(species_scores)  
+head(species_scores)  #look at the data
 ```
 
 ```{r}
-dim(dat)
-summary(dat)
-colnames(dat)
-str(dat)
+data_scores %>% 
+  ggplot(aes(x = NMDS1, y = NMDS2, shape = urchin_addition,colour = urchin_addition)) + 
+  geom_point(size = 2, alpha = 0.8) + # add the point markers
+  coord_equal() +
+  theme(axis.text = element_blank(),  # remove axis text
+        axis.ticks = element_blank(),  # remove axis ticks
+        axis.title = element_blank(), # remove axis labels
+        legend.title = element_blank()) 
+```
 
-## subset 1009 data (to best match NEPWS sampling)
-dat1 <- subset(dat, dat$month=="1009")
-dim(dat1)
-colnames(dat1)
+Now separate by site. 
 
-# create spp matrix (including ON and PG)
-abun <- dat1[,13:75]
-summary(abun)
+```{r, fig.width = 7, fig.height = 5}
+data_scores %>% 
+  ggplot(aes(x = NMDS1, y = NMDS2, shape = urchin_addition,colour = urchin_addition)) + 
+  geom_point(size = 2, alpha = 0.8) + # add the point markers
+  coord_equal() +
+  theme(axis.text = element_blank(),  # remove axis text
+        axis.ticks = element_blank(),  # remove axis ticks
+        axis.title = element_blank(), # remove axis labels
+        legend.title = element_blank()) + 
+  facet_wrap(~ site)# remove y-axis labels)
+```
 
-# transform matrix
-abun.sq <- sqrt(abun)
+### Comparing NMDS after transformations
 
-# presence/absence
-abun.pa <- decostand(abun, method="pa")
-
-# create group matrix
-group <- dat1[,1:12]
-
-# Perform the NMDS in 2 dimensions on raw data
-abun.MDS2 = metaMDS(abun, distance="bray", k=2, engine = 'monoMDS', autotransform=FALSE, noshare=0.1, trymax=40, zerodist='add')
-abun.MDS2$stress # stress = 0.225
-
-# Perform the NMDS in 2 dimensions on sqrt data
-abun.sq.MDS2 = metaMDS(abun.sq, distance="bray", k=2, engine = 'monoMDS', autotransform=FALSE, noshare=0.1, trymax=40, zerodist='add')
-abun.sq.MDS2$stress # stress = 0.236
-
-
-# Perform the NMDS in 2 dimensions on sqrt data
-abun.pa.MDS2 = metaMDS(abun.pa, distance="bray", k=2, engine = 'monoMDS', autotransform=FALSE, noshare=0.1, trymax=40, zerodist='add')
-abun.pa.MDS2$stress # stress = 0.241
-
-
-
-# plot 3 panels
-par(mfrow=c(1,3), pty="s", mar=c(1,1,1,1), oma=c(2,4,2,1))
-
-plot(abun.MDS2$points, col=c(group$site), xaxt='n', yaxt='n', xlab='', ylab='', main="Raw cover")
-plot(abun.sq.MDS2$points, col=c(group$site), xaxt='n', yaxt='n', xlab='', ylab='', main="Square root")
-plot(abun.pa.MDS2$points, col=c(group$site), xaxt='n', yaxt='n', xlab='', ylab='', main="Presence-Absence")
-
-legend("topright", legend=levels(group$site), pch=1, col=c(1:3), bty='y')
-
-
-# now do the same for the NEPWS data (pa only)
-dat2 <- read.csv(paste(repo_url, "NEPWS_channel_130513.csv", sep = ""), header=TRUE, na.strings="NA")
-colnames(dat2)
-
-# create spp matrix (including ON and PG)
-abun2 <- dat2[,15:87]
-summary(abun2)
-
-# create group matrix
-group2 <- dat2[,1:14]
-group2
+```{r compare-mds, results = 'hide'}
 
 # Perform the NMDS in 2 dimensions on raw data
-nepws.MDS2 = metaMDS(abun2, distance="bray", k=2, engine = 'monoMDS', autotransform=FALSE, noshare=0.1, trymax=40, zerodist='add')
-nepws.MDS2$stress # stress = 0.264
+set.seed(132)
+abun_MDS2 <- metaMDS(abun, distance="bray", k=2, engine = 'monoMDS', 
+                    autotransform=FALSE, noshare=0.1, trymax=40, zerodist='add')
 
-# compare both PA plots
+# Perform the NMDS in 2 dimensions on sqrt data
+set.seed(132)
+abun_sq_MDS2 <- metaMDS(abun_sq, distance="bray", k=2, engine = 'monoMDS', 
+                       autotransform=FALSE, noshare=0.1, trymax=40, zerodist='add')
 
-# par(mfrow=c(1,2), pty="s", mar=c(1,1,1,1), oma=c(2,4,2,1))
-# 
-# plot(nepws.MDS2$points, col=c(group$site), xaxt='n', yaxt='n', xlab='', ylab='', main="NEPWS")
-# legend("topright", legend=levels(group2$site), pch=1, col=c(1:3), bty='y')
-# 
-# 
-# plot(abun.pa.MDS2$points, col=c(group$site), xaxt='n', yaxt='n', xlab='', ylab='', main="Presence-Absence_%Cover")
-
-
+# Perform the NMDS in 2 dimensions on presence / absence data
+set.seed(12345678) # was difficult to converge
+abun_pa_MDS2 <- metaMDS(abun_pa, distance="bray", k=2, engine = 'monoMDS', 
+                       autotransform=FALSE, noshare=0.1, trymax=40, zerodist='add')
 
 ```
 
+```{r mds-functions}
 
+extract_data_scores <- function(mds_results, dat_group){
+# Using the scores function from vegan to extract the site scores and convert to a data.frame
+data_scores <- as.data.frame(scores(mds_results))  
+# Combining with group dataframe
+data_scores <- cbind(data_scores, dat_group)
+return(data_scores)
+}
 
-* * *
+extract_species_scores <- function(mds_results){
+# Using the scores function from vegan to extract the species scores and convert to a data.frame
+species_scores <- as.data.frame(scores(mds_results, "species"))  
+# Create a column of species, from the rownames of species.scores
+species_scores$species <- rownames(species_scores)  
+return(species_scores)
+}
 
-## More Practice
-
-7.  Mutate the data frame so that it includes a new variable that contains the 
-    average speed, `avg_speed` traveled by the plane for each flight (in mph).
-    **Hint:** Average speed can be calculated as distance divided by
-    number of hours of travel, and note that `air_time` is given in minutes.
-    Make a scatterplot of `avg_speed` vs. `distance`. **Hint:** Use `geom_point()`. 
-    Describe the relationship between average speed and distance.
-
-8.  Replicate the following plot. **Hint:** The data frame plotted only
-    contains flights from American Airlines, Delta Airlines, and United
-    Airlines, and the points are `color`ed by `carrier`. Include the code you used to create the plot, 
-    as well as the plot itself. 
-    <!-- Once you replicate the plot, determine (roughly) what the cutoff point is for departure -->
-    <!-- delays where you can still expect to get to your destination on time. -->
-
-```{r plot-to-replicate, echo=FALSE, eval = TRUE, fig.show="asis", fig.width=7, fig.height=4}
-# dl_aa_ua <- nycflights %>%
-#   filter(carrier == "AA" | carrier == "DL" | carrier == "UA")
-# ggplot(data = dl_aa_ua, aes(x = dep_delay, y = arr_delay, color = carrier)) +
-#   geom_point()
 ```
 
-## License  
-<div id="license">
-Robin Elahi, that is released under a [Creative Commons Attribution-ShareAlike 4.0](http://creativecommons.org/licenses/by-sa/4.0) license.
-This lab was adapted from a lab written by..
-</div>
+```{r compare-mds-extract}
+
+abun_MDS2$stress
+abun_sq_MDS2$stress 
+abun_pa_MDS2$stress 
+
+
+abun_ds <- extract_data_scores(mds_results = abun_MDS2, dat_group = dat_group) %>% 
+  mutate(transformation = "none")
+abun_sq_ds <- extract_data_scores(mds_results = abun_sq_MDS2, dat_group = dat_group) %>% 
+  mutate(transformation = "square-root")
+abun_pa_ds <- extract_data_scores(mds_results = abun_pa_MDS2, dat_group = dat_group) %>% 
+  mutate(transformation = "presence")
+
+data_scores <- rbind(abun_ds, abun_sq_ds, abun_pa_ds) %>% 
+  mutate(transformation = factor(transformation, 
+                                 levels = c("none", "square-root", "presence")))
+
+```
+
+```{r compare-mds-plot, fig.width = 7, fig.height = 7}
+data_scores %>% 
+  ggplot(aes(x = NMDS1, y = NMDS2, shape = urchin_addition,colour = urchin_addition)) + 
+  geom_point(size = 2, alpha = 0.8) + # add the point markers
+  coord_equal() +
+  theme(axis.text = element_blank(),  # remove axis text
+        axis.ticks = element_blank(),  # remove axis ticks
+        axis.title = element_blank(), # remove axis labels
+        legend.title = element_blank()) + 
+  facet_grid(transformation ~ site)# remove y-axis labels)
+```
+
+
+<!-- * * * -->
+
+<!-- ## More Practice -->
+
+<!-- 7.  Mutate the data frame so that it includes a new variable that contains the  -->
+<!--     average speed, `avg_speed` traveled by the plane for each flight (in mph). -->
+<!--     **Hint:** Average speed can be calculated as distance divided by -->
+<!--     number of hours of travel, and note that `air_time` is given in minutes. -->
+<!--     Make a scatterplot of `avg_speed` vs. `distance`. **Hint:** Use `geom_point()`.  -->
+<!--     Describe the relationship between average speed and distance. -->
+
+<!-- 8.  Replicate the following plot. **Hint:** The data frame plotted only -->
+<!--     contains flights from American Airlines, Delta Airlines, and United -->
+<!--     Airlines, and the points are `color`ed by `carrier`. Include the code you used to create the plot,  -->
+<!--     as well as the plot itself.  -->
+<!--     <!-- Once you replicate the plot, determine (roughly) what the cutoff point is for departure --> -->
+<!--     <!-- delays where you can still expect to get to your destination on time. --> -->
+
+<!-- ## License   -->
+<!-- <div id="license"> -->
+<!-- Robin Elahi, that is released under a [Creative Commons Attribution-ShareAlike 4.0](http://creativecommons.org/licenses/by-sa/4.0) license. -->
+<!-- This lab was adapted from a lab written by.. -->
+<!-- </div> -->
 
