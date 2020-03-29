@@ -1,0 +1,113 @@
+---
+title: "Visualizing COVID-19 cases in and around Monterey"
+author: Robin Elahi
+date: '`r format(Sys.Date(), "%B %d, %Y")`'
+fontfamily: mathpazo
+fontsize: 10pt
+geometry: margin=0.75in
+output:
+  html_document:
+    css: ../lab.css
+    highlight: pygments
+    theme: cerulean
+    toc: true
+    toc_float: true
+  pdf_document:
+    toc: no
+layout: topic
+editor_options:
+  chunk_output_type: console
+---
+
+```{r global_options, include=FALSE}
+knitr::opts_chunk$set(fig.width = 7, fig.height = 7, 
+                      echo = TRUE, eval = TRUE, warning = FALSE, message = FALSE)
+```
+
+## Load packages
+
+```{r load-packages, message = FALSE, eval = TRUE}
+library(tidyverse)
+theme_set(theme_light(base_size = 14) +
+  theme(strip.background = element_rect(fill = "gray95"),
+        strip.text = element_text(color = "black"), 
+        panel.grid.major.x = element_blank(), 
+        panel.grid.minor = element_blank(), 
+        panel.border = element_blank()))
+## Define the repository from which we get the data
+nytimes_csv <- "https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv"
+```
+
+## Load data
+
+```{r, results = "hide"}
+dat <- read_csv(nytimes_csv)
+dat_ca <- dat %>% filter(state == "California")
+dat_ca %>% count(county) %>% print(n = 100)
+mp_area <- c("Monterey", "Santa Cruz", 
+             #"San Benito", "Kings", "Fresno", 
+             "San Luis Obispo", "Santa Clara")
+dat_mp <- dat %>% 
+  filter(county %in% mp_area)
+```
+
+```{r}
+# Santa Cruz county has 2 FIPS codes, summarise across these two
+dat_mp <- dat_mp %>% 
+  group_by(date, county) %>% 
+  summarise(cases = sum(cases), 
+            deaths = sum(deaths)) %>% 
+  ungroup()
+```
+
+```{r population-data}
+pop_dat <- dat_mp %>% 
+  distinct(county)
+
+pop_dat <- pop_dat %>% 
+  mutate(population = c(1922200, 273765, 281455, 433212))
+```
+
+```{r merge-data}
+dat_mp <- dat_mp %>% 
+  left_join(., pop_dat) %>% 
+  mutate(cases_100k = (cases / population) * 100000, 
+         deaths_100k = (deaths / population) * 100000)
+```
+
+
+## Plot data
+
+### Cases, normal scale
+
+```{r normal-scale}
+dat_mp %>% 
+  ggplot(aes(date, cases)) + 
+  geom_point(color = "red") + 
+  geom_line(color = "red") + 
+  facet_wrap(~ county) + 
+  labs(x = "", y = "Cases")
+```
+
+### Cases, log scale
+
+```{r log-scale}
+dat_mp %>% 
+  ggplot(aes(date, cases)) + 
+  geom_point(color = "red") + 
+  geom_line(color = "red") + 
+  facet_wrap(~ county) + 
+  labs(x = "", y = "Cases") + 
+  scale_y_log10()
+```
+
+### Cases per 100,000 residents
+
+```{r per-100k}
+dat_mp %>% 
+  ggplot(aes(date, cases_100k)) + 
+  geom_point(color = "red") + 
+  geom_line(color = "red") + 
+  facet_wrap(~ county) + 
+  labs(x = "", y = "Cases per 100k") 
+```
