@@ -21,13 +21,14 @@ editor_options:
 
 ```{r global_options, include=FALSE}
 knitr::opts_chunk$set(fig.width = 7, fig.height = 7, 
-                      echo = TRUE, eval = TRUE, warning = FALSE, message = FALSE)
+                      echo = FALSE, eval = TRUE, warning = FALSE, message = FALSE)
 ```
 
 ## Load packages
 
 ```{r load-packages, message = FALSE, eval = TRUE}
 library(tidyverse)
+library(ggrepel)
 theme_set(theme_light(base_size = 14) +
   theme(strip.background = element_rect(fill = "gray95"),
         strip.text = element_text(color = "black"), 
@@ -72,11 +73,61 @@ pop_dat <- pop_dat %>%
 dat_mp <- dat_mp %>% 
   left_join(., pop_dat) %>% 
   mutate(cases_100k = (cases / population) * 100000, 
-         deaths_100k = (deaths / population) * 100000)
+         deaths_100k = (deaths / population) * 100000, 
+         cases_log = log(cases), 
+         deaths_log = log(cases))
 ```
 
 
 ## Plot data
+
+### Cases, normal scale
+
+```{r}
+
+dat_mp_labels <- dat_mp %>% 
+  group_by(county) %>% 
+  slice(n()) %>% 
+  #sample_n(size = 1) %>% 
+  ungroup()
+
+dat_mp %>% 
+  ggplot(aes(date, cases, label = county, color = county)) + 
+  geom_point() + 
+  geom_line() + 
+  labs(x = "", y = "Cases") + 
+  labs(x = "", y = "Cases") + 
+  geom_label_repel(data = dat_mp_labels) +
+  theme(legend.position = "none")
+```
+
+### Cases, log scale
+
+```{r}
+dat_mp %>% 
+  ggplot(aes(date, cases, color = county, label = county)) + 
+  geom_point() + 
+  geom_line() + 
+  labs(x = "", y = "Cases") + 
+  scale_y_log10() + 
+  geom_text_repel(data = dat_mp_labels) +
+  theme(legend.position = "none")
+```
+
+### Cases per 100,000 residents
+
+```{r}
+dat_mp %>% 
+  ggplot(aes(date, cases_100k, label = county, color = county)) + 
+  geom_point() + 
+  geom_line() + 
+  labs(x = "", y = "Cases") + 
+  labs(x = "", y = "Cases") + 
+  geom_label_repel(data = dat_mp_labels) +
+  theme(legend.position = "none")
+```
+
+## Plot data - facetted
 
 ### Cases, normal scale
 
@@ -111,3 +162,83 @@ dat_mp %>%
   facet_wrap(~ county) + 
   labs(x = "", y = "Cases per 100k") 
 ```
+
+## Doubling time analysis
+
+```{r monterey-test}
+dat_i <- dat_mp %>% 
+  filter(county == "Monterey")
+
+dat_i %>% ggplot(aes(date, cases)) + geom_point() + geom_line() + scale_y_log10()
+
+## Decide on first date of analysis
+dat_i <- dat_i %>% 
+  mutate()
+
+dat_i %>% 
+  ggplot(aes(date, cases_log)) + 
+  geom_point(color = "red") + 
+  geom_line(color = "red") + 
+  labs(x = "", y = "Log(cases)") + 
+  geom_smooth(method = "lm") + 
+  geom_smooth(method = "lm", formula = cases_log ~ date + I(date^2))
+
+range(dat_i$date)
+
+
+
+```
+
+## State analysis
+
+```{r}
+dat_state <- dat %>% 
+  group_by(date, state) %>% 
+  summarise(cases = sum(cases), 
+            deaths = sum(deaths)) %>% 
+  ungroup()
+  
+
+dat_state %>% 
+  ggplot(aes(date, cases)) + 
+  geom_point(color = "red", size = 0.5) + 
+  geom_line(color = "red") + 
+  facet_wrap(~ state) + 
+  labs(x = "", y = "Cases") + 
+  scale_y_log10()
+
+dat_state %>% 
+  ggplot(aes(date, deaths + 1, color = state)) + 
+  geom_point(size = 0.5) + 
+  geom_line() + 
+  labs(x = "", y = "Cases") + 
+  scale_y_log10()
+```
+
+## California analysis
+
+```{r}
+dat_ca2 <- dat_ca %>% 
+  group_by(date, county) %>% 
+  summarise(cases = sum(cases), 
+            deaths = sum(deaths)) %>% 
+  ungroup()
+  
+dat_ca2 %>% 
+  ggplot(aes(date, cases)) + 
+  geom_point(color = "red", size = 0.5) + 
+  geom_line(color = "red") + 
+  facet_wrap(~ county) + 
+  labs(x = "", y = "Cases") + 
+  scale_y_log10()
+```
+
+```{r, include = FALSE}
+dat_ca2 %>% 
+  ggplot(aes(date, deaths + 1, label = county)) + 
+  geom_point(size = 0.5) + 
+  geom_line() + 
+  labs(x = "", y = "Cases") + 
+  scale_y_log10()
+```
+
